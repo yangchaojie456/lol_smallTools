@@ -1,0 +1,117 @@
+<import src="../../wxParse/wxParse.wxml"/> 
+<!--pages/equipment/equipment.wxml-->
+<view class='equipment-home'>
+  <!-- 可合成装备栏 -->
+  <view class='equipment-compound'>
+    <view class='equipment-compound-name'>可合成：</view>
+    <view class='equipment-compound-scroll'>
+      <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+        <view class='equipment-compound-scroll-image' wx:for="{{lolData}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changeEquip'>
+          <image src='//ossweb-img.qq.com/images/lol/img/item/{{index}}.png'></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 合成 -->
+  <view class='equipment-compound-path'>
+    <view class='equipment-compound-path-name'>
+      需要：
+    </view>
+    <view class='equipment-compound-path-content'>
+      <!-- 主装备开始 -->
+      <view class='lol-equipment'>
+  <view class='w100'>
+    <view class="equipment-compound-item">
+      <view wx:if="{{lolData[currentItem].from.length>0}}" class="afterColumn"></view>
+      <image src='//ossweb-img.qq.com/images/lol/img/item/{{currentItem}}.png'></image>
+      <view>
+        {{lolData[currentItem].gold.total}}
+      </view>
+    </view>  
+  </view>
+  <view wx:if="{{lolData[currentItem].from.length>0}}" class="inlineBlock">
+    <view class="none {{lolData[currentItem].from.length==2?'afterRow2':''}} {{lolData[currentItem].from.length==3?'afterRow3':''}} {{lolData[currentItem].from.length==4?'afterRow4':''}} {{lolData[currentItem].from.length==5?'afterRow5':''}}"></view>
+    <view wx:for="{{lolData[currentItem].from}}" wx:for-item="i" wx:for-index="index_i" wx:key="index_i" class="{{lolData[currentItem].from.length==2?'w50':''}} {{lolData[currentItem].from.length==3?'w33.33':''}} {{lolData[currentItem].from.length==4?'w25':''}} {{lolData[currentItem].from.length==5?'w20':''}}">
+      <view class="equipment-compound-item">
+          <view class="beforeColumn"></view>
+          <view wx:if="{{lolData[i].from.length>0}}" class="afterColumn"></view>
+          <image src='//ossweb-img.qq.com/images/lol/img/item/{{i}}.png'></image>
+          <view>{{lolData[i].gold.total}}</view>
+      </view>
+      <view wx:if="{{lolData[i].from.length>0}}"  class="inlineBlock">
+        <view class="none {{lolData[i].from.length==2?'afterRow2':''}} {{lolData[i].from.length==3?'afterRow3':''}} {{lolData[i].from.length==4?'afterRow4':''}} {{lolData[i].from.length==5?'afterRow5':''}}"></view>
+        <view wx:for="{{lolData[i].from}}" wx:for-item='j' wx:for-index="index_j" wx:key="index_j" class="{{lolData[i].from.length==2?'w50':''}} {{lolData[i].from.length==3?'w33.33':''}} {{lolData[i].from.length==4?'w25':''}} {{lolData[i].from.length==5?'w20':''}}">
+          <view class="equipment-compound-item">
+            <view class="beforeColumn"></view>
+            <view wx:if="{{lolData[j].from.length>0}}" class="afterColumn"></view>
+            <image src='//ossweb-img.qq.com/images/lol/img/item/{{j}}.png'></image>
+            <view>{{lolData[j].gold.total}}</view>
+          </view>
+          <view wx:if="{{lolData[j].from.length>0}}"  class="inlineBlock">
+            <view class="none {{lolData[j].from.length==2?'afterRow2':''}} {{lolData[j].from.length==3?'afterRow3':''}} {{lolData[j].from.length==4?'afterRow4':''}} {{lolData[j].from.length==5?'afterRow5':''}}"></view>
+            <view wx:for="{{lolData[j].from}}" wx:for-item='k' wx:for-index="index_k" wx:key="index_k" class="{{lolData[j].from.length==2?'w50':''}} {{lolData[j].from.length==3?'w33.33':''}} {{lolData[j].from.length==4?'w25':''}} {{lolData[j].from.length==5?'w20':''}}">
+              <view class="equipment-compound-item">
+                <view class="beforeColumn"></view>
+                <view wx:if="{{lolData[currentItkem].from.length>0}}" class="afterColumn"></view>
+                <image src='//ossweb-img.qq.com/images/lol/img/item/{{k}}.png'></image>
+                <view>{{lolData[k].gold.total}}</view>
+              </view>
+              <view wx:if="{{lolData[k].from.length>0}}"  class="inlineBlock">
+                <view class="none {{lolData[k].from.length==2?'afterRow2':''}} {{lolData[k].from.length==3?'afterRow3':''}} {{lolData[k].from.length==4?'afterRow4':''}} {{lolData[k].from.length==5?'afterRow5':''}}"></view>
+                <view wx:for="{{lolData[k].from}}" wx:for-item='x' wx:for-index="index_x" wx:key="index_x" class="{{lolData[k].from.length==2?'w50':''}} {{lolData[k].from.length==3?'w33.33':''}} {{lolData[k].from.length==4?'w25':''}} {{lolData[k].from.length==5?'w20':''}}">
+                  <view class="equipment-compound-item">
+                    <view class="beforeColumn"></view>
+                    <view wx:if="{{lolData[x].from.length>0}}" class="afterColumn"></view>
+                    <image src='//ossweb-img.qq.com/images/lol/img/item/{{x}}.png'></image>
+                    <view>{{lolData[x].gold.total}}</view>
+                  </view>
+                  <view wx:if="{{lolData[x].from.length>0}}"  class="inlineBlock">
+                    <view class="none {{lolData[x].from.length==2?'afterRow2':''}} {{lolData[x].from.length==3?'afterRow3':''}} {{lolData[x].from.length==4?'afterRow4':''}} {{lolData[x].from.length==5?'afterRow5':''}}"></view>
+                    <view wx:for="{{lolData[x].from}}" wx:for-item='y' wx:for-index="index_y" wx:key="index_y" class="{{lolData[x].from.length==2?'w50':''}} {{lolData[x].from.length==3?'w33.33':''}} {{lolData[x].from.length==4?'w25':''}} {{lolData[x].from.length==5?'w20':''}}">
+                      <view class="equipment-compound-item">
+                        <view class="beforeColumn"></view>
+                        <view wx:if="{{lolData[y].from.length>0}}" class="afterColumn"></view>
+                        <image src='//ossweb-img.qq.com/images/lol/img/item/{{y}}.png'></image>
+                        <view>{{lolData[y].gold.total}}</view>
+                      </view>
+                      <view wx:if="{{lolData[y].from.length>0}}" class="inlineBlock">
+                        <view class="none {{lolData[y].from.length==2?'afterRow2':''}} {{lolData[y].from.length==3?'afterRow3':''}} {{lolData[y].from.length==4?'afterRow4':''}} {{lolData[y].from.length==5?'afterRow5':''}}"></view>
+                        <view wx:for="{{lolData[y].from}}" wx:for-item="z" wx:for-index="index_z" wx:key="index_z" class="{{lolData[y].from.length==2?'w50':''}} {{lolData[y].from.length==3?'w33.33':''}} {{lolData[y].from.length==4?'w25':''}} {{lolData[y].from.length==5?'w20':''}}">
+                          <view class="equipment-compound-item">
+                            <view class="beforeColumn"></view>
+                            <view wx:if="{{lolData[z].from.length>0}}" class="afterColumn"></view>
+                            <image src='//ossweb-img.qq.com/images/lol/img/item/{{z}}.png'></image>
+                            <view>{{lolData[z].gold.total}}</view>
+                          </view>
+                        </view>                        
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+      
+    </view>
+  </view>
+  <!-- 物品说明 -->
+  <view class='equipment-description'>
+    <view class='equipment-description-header'>
+      <view class='equipment-description-image'>
+        <image src='//ossweb-img.qq.com/images/lol/img/item/{{currentItem}}.png'></image>
+      </view>
+      <view class='equipment-description-brief'>
+        <view class='equipment-description-name'>{{lolData[currentItem].name}}</view>
+        <view class='equipment-description-price'>{{lolData[currentItem].gold.total}}</view>
+      </view>
+    </view>
+    <view class='equipment-description-content'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+</view>
