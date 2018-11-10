@@ -1,0 +1,36 @@
+图片大小
+https://am-a.akamaihd.net/image?f=https://universe-meeps.leagueoflegends.com/v1/assets/images/aatrox-splash.jpg&resize=:500
+英雄
+http://lol.qq.com/web201310/info-heros.shtml#Navi
+https://universe.leagueoflegends.com/en_US/champions/
+https://na.leagueoflegends.com/en/game-info/champions/
+https://universe-meeps.leagueoflegends.com/v1/en_us/champion-browse/index.json
+物品
+https://na.leagueoflegends.com/en/game-info/items/
+http://lol.qq.com/web201310/info-item.shtml#Navi
+http://lol.qq.com/biz/hero/item.js
+
+
+符文
+http://lol.qq.com/act/preseason/rune.html
+http://lol.qq.com/web201310/info-rune.shtml#Navi
+
+版本中心
+http://lol.qq.com/webplat/info/news_version3/152/22006/m14286/list_1.shtml
+
+
+颜色
+#c9aa71
+
+
+#c4b998
+
+    border-image-slice: 20;
+    border-image-source: linear-gradient(180deg,#efe5d4 0,#c69b4b);
+    transition: opacity .4s ease;
+
+
+function decodeUnicode(str) {
+    str = str.replace(/\\/g, "%");
+    return unescape(str);
+}
