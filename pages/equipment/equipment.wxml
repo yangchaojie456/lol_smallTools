@@ -6,8 +6,8 @@
     <view class='equipment-compound-name'>可合成：</view>
     <view class='equipment-compound-scroll'>
       <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
-        <view class='equipment-compound-scroll-image' wx:for="{{lolData}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changeEquip'>
-          <image src='//ossweb-img.qq.com/images/lol/img/item/{{index}}.png'></image>
+        <view class='equipment-compound-scroll-image' wx:for="{{intoEquip}}" wx:key="{{index}}" data-index="{{item}}" bindtap='changeEquip'>
+          <image src='//ossweb-img.qq.com/images/lol/img/item/{{item}}.png'></image>
         </view>
       </scroll-view>
     </view>
@@ -23,7 +23,7 @@
   <view class='w100'>
     <view class="equipment-compound-item">
       <view wx:if="{{lolData[currentItem].from.length>0}}" class="afterColumn"></view>
-      <image src='//ossweb-img.qq.com/images/lol/img/item/{{currentItem}}.png'></image>
+      <image bindtap="chooseEquip" data-index="{{currentItem}}" src='//ossweb-img.qq.com/images/lol/img/item/{{currentItem}}.png'></image>
       <view>
         {{lolData[currentItem].gold.total}}
       </view>
@@ -35,7 +35,7 @@
       <view class="equipment-compound-item">
           <view class="beforeColumn"></view>
           <view wx:if="{{lolData[i].from.length>0}}" class="afterColumn"></view>
-          <image src='//ossweb-img.qq.com/images/lol/img/item/{{i}}.png'></image>
+          <image bindtap="chooseEquip" data-index="{{i}}" src='//ossweb-img.qq.com/images/lol/img/item/{{i}}.png'></image>
           <view>{{lolData[i].gold.total}}</view>
       </view>
       <view wx:if="{{lolData[i].from.length>0}}"  class="inlineBlock">
@@ -44,7 +44,7 @@
           <view class="equipment-compound-item">
             <view class="beforeColumn"></view>
             <view wx:if="{{lolData[j].from.length>0}}" class="afterColumn"></view>
-            <image src='//ossweb-img.qq.com/images/lol/img/item/{{j}}.png'></image>
+            <image bindtap="chooseEquip" data-index="{{j}}" src='//ossweb-img.qq.com/images/lol/img/item/{{j}}.png'></image>
             <view>{{lolData[j].gold.total}}</view>
           </view>
           <view wx:if="{{lolData[j].from.length>0}}"  class="inlineBlock">
@@ -53,7 +53,7 @@
               <view class="equipment-compound-item">
                 <view class="beforeColumn"></view>
                 <view wx:if="{{lolData[currentItkem].from.length>0}}" class="afterColumn"></view>
-                <image src='//ossweb-img.qq.com/images/lol/img/item/{{k}}.png'></image>
+                <image bindtap="chooseEquip" data-index="{{k}}" src='//ossweb-img.qq.com/images/lol/img/item/{{k}}.png'></image>
                 <view>{{lolData[k].gold.total}}</view>
               </view>
               <view wx:if="{{lolData[k].from.length>0}}"  class="inlineBlock">
@@ -62,7 +62,7 @@
                   <view class="equipment-compound-item">
                     <view class="beforeColumn"></view>
                     <view wx:if="{{lolData[x].from.length>0}}" class="afterColumn"></view>
-                    <image src='//ossweb-img.qq.com/images/lol/img/item/{{x}}.png'></image>
+                    <image bindtap="chooseEquip" data-index="{{x}}" src='//ossweb-img.qq.com/images/lol/img/item/{{x}}.png'></image>
                     <view>{{lolData[x].gold.total}}</view>
                   </view>
                   <view wx:if="{{lolData[x].from.length>0}}"  class="inlineBlock">
@@ -71,7 +71,7 @@
                       <view class="equipment-compound-item">
                         <view class="beforeColumn"></view>
                         <view wx:if="{{lolData[y].from.length>0}}" class="afterColumn"></view>
-                        <image src='//ossweb-img.qq.com/images/lol/img/item/{{y}}.png'></image>
+                        <image bindtap="chooseEquip" data-index="{{y}}" src='//ossweb-img.qq.com/images/lol/img/item/{{y}}.png'></image>
                         <view>{{lolData[y].gold.total}}</view>
                       </view>
                       <view wx:if="{{lolData[y].from.length>0}}" class="inlineBlock">
@@ -80,7 +80,7 @@
                           <view class="equipment-compound-item">
                             <view class="beforeColumn"></view>
                             <view wx:if="{{lolData[z].from.length>0}}" class="afterColumn"></view>
-                            <image src='//ossweb-img.qq.com/images/lol/img/item/{{z}}.png'></image>
+                            <image bindtap="chooseEquip" data-index="{{z}}" src='//ossweb-img.qq.com/images/lol/img/item/{{z}}.png'></image>
                             <view>{{lolData[z].gold.total}}</view>
                           </view>
                         </view>                        
@@ -103,15 +103,15 @@
   <view class='equipment-description'>
     <view class='equipment-description-header'>
       <view class='equipment-description-image'>
-        <image src='//ossweb-img.qq.com/images/lol/img/item/{{currentItem}}.png'></image>
+        <image src='//ossweb-img.qq.com/images/lol/img/item/{{desItem}}.png'></image>
       </view>
       <view class='equipment-description-brief'>
-        <view class='equipment-description-name'>{{lolData[currentItem].name}}</view>
-        <view class='equipment-description-price'>{{lolData[currentItem].gold.total}}</view>
+        <view class='equipment-description-name'>{{lolData[desItem].name}}</view>
+        <view class='equipment-description-price'>{{lolData[desItem].gold.total}}</view>
       </view>
     </view>
     <view class='equipment-description-content'>
-      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <template is="wxParse" data="{{wxParseData:description.nodes}}"/>
     </view>
   </view>
 </view>

@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    lolData:[]
   },
 
   /**
@@ -19,9 +19,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       lolData:LOLitemjs.data,
-      
     })
-    
+    this.changeEquip({}, 1036)
     
   },
 
@@ -73,15 +72,39 @@ Page({
   onShareAppMessage: function () {
 
   },
-  changeEquip(e){
-    
+  // 更新装备描述
+  updateEquipDes(description){
+    WxParse.wxParse('description', 'html', description, this, 5);
+  },
+  chooseEquip(e){
     var index = e.currentTarget.dataset.index
+    
+    description = LOLitemjs.data[index].description
+    this.updateEquipDes(description)
+    this.setData({      
+      desItem:index
+    })
+    if (LOLitemjs.data[index].into){
+      this.setData({
+        intoEquip: LOLitemjs.data[index].into
+      })
+    }
+  },
+  changeEquip(e,i){
+    
+    var index = e.currentTarget?e.currentTarget.dataset.index:i
     console.log(LOLitemjs.data[index])
     
     description = LOLitemjs.data[index].description
-    WxParse.wxParse('article', 'html', description, this, 5);
+    this.updateEquipDes(description)
     this.setData({
-      currentItem: index
+      currentItem: index,
+      desItem:index
     })
+    if (LOLitemjs.data[index].into){
+      this.setData({
+        intoEquip: LOLitemjs.data[index].into
+      })
+    }
   }
 })

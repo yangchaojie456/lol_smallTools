@@ -60,8 +60,16 @@ image{
 .afterRow3{
   display: block;
   position: absolute;
-  width: 68%;
-  left: 16%;
+  width: 66.5%;
+  left: 17%;
+  height:1px;
+  background:#7a6946; 
+}
+.afterRow4{
+  display: block;
+  position: absolute;
+  width: 75%;
+  left: 12.5%;
   height:1px;
   background:#7a6946; 
 }
@@ -105,10 +113,24 @@ image{
   padding-top: 10rpx;
   color:#3c7a6e;
 }
-.wxParse-stats{
+.wxParse-consumable,.wxParse-unlockedpassive{
+  color:#e17911;
+  display: inline;
+}
+.wxParse-mana{
+  display: inline;
+}
+.wxParse-scalehealth{
+  color:#fd3300;
+  display: inline;
+}
+.wxParse-levellimit {
+  color: #eb3131;
+}
+.wxParse-stats,.wxParse-grouplimit{
   color:#97fc97;
 }
-.wxParse-unique{
+.wxParse-unique,.wxParse-passive,.wxParse-active{
   color:#fcdb22;
   display: inline;
 }
