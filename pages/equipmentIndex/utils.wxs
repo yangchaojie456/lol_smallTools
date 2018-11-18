@@ -1,0 +1,8 @@
+
+var isSelect = function (array,e) {
+  var index = array.indexOf(e)
+  return index>-1?true:false
+}
+module.exports = {
+  isSelect: isSelect
+};

@@ -1,8 +1,11 @@
 {
   "pages": [
+    
+    "pages/equipmentIndex/equipmentIndex",
     "pages/equipment/equipment",
     "pages/index/index",
     "pages/logs/logs"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
