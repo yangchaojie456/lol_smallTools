@@ -126,3 +126,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
    transform:translate(-50%, -50%) scale(1);
    -webkit-transform:translate(-50%, -50%) scale(1);
 }
+
+/* 禁用后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-disabled{
+  border: 2rpx solid transparent;   
+  background: transparent;
+}
