@@ -1,42 +1,147 @@
 var LOLitemjs = require('../equipment/lolItem.js')
 // console.log(LOLitemjs.data)
 var LOLitemData = LOLitemjs.data
-// 装备对象转化成数组 用于排序
-var LOLitemDataArr = []
-var currentMap = 11
-// 对象转数组
-for (const key in LOLitemData) {
-  LOLitemDataArr.push({
-    [key]:LOLitemData[key]
-  })  
-}
 
+var currentMapValue = 'zhsxg'
+var currentTagsValue = []
+
+// 对象转数组
+function ObjToArray(LOLitemData){
+  var LOLitemDataArr = []
+  for (const key in LOLitemData) {
+    LOLitemDataArr.push({
+      [key]:LOLitemData[key]
+    })  
+  }
+  return LOLitemDataArr
+}
+/**
+ * 根据地图，属性过滤出还可选取的武器属性
+ * @param {String} map 地图
+ * @param {Array} tags 装备属性
+ */
+function filterToCanSelect(map,tags){
+  var cMap = 11
+  var cLOLitemTags = []
+  if (map == 'zhsxg') {
+    cMap = 11
+  } else if (map == 'jddld') {
+    cMap = 12
+  } else if (map == 'nqcl') {
+    cMap = 10
+  }
+  for (const key in LOLitemData) {
+    if(LOLitemData.hasOwnProperty(key)){
+      
+      var cItem = LOLitemData[key]
+      if(cItem.maps[cMap]){
+
+        if(cItem.tags.length>tags.length){
+          var flag = true
+          for(var i = 0 ; i <tags.length;i++){
+            if(!cItem.tags.includes(tags[i])){
+              flag = false
+            }
+          }
+          if(flag){
+            cLOLitemTags = cLOLitemTags.concat(LOLitemData[key].tags) 
+          }
+        }
+
+        
+      }
+    }
+  }
+  cLOLitemTags = [...new Set(cLOLitemTags)]
+  return cLOLitemTags
+}
+/**
+ * 根据地图，属性过滤装备
+ * @param {String} map 地图
+ * @param {Array} tags 装备属性
+ * @param {Boolean} union 取装备属性的并集还是交集
+ */
+function filterEquip(map,tags,union){
+  var cMap = 11
+  var cLOLitemData = {}
+  if (map == 'zhsxg') {
+    cMap = 11
+  } else if (map == 'jddld') {
+    cMap = 12
+  } else if (map == 'nqcl') {
+    cMap = 10
+  }
+  // 一个武器属性时
+  if(!tags || tags.length==0){
+    for (const key in LOLitemData) {
+      if(LOLitemData.hasOwnProperty(key)){
+        
+        var cItem = LOLitemData[key]
+        if(cItem.maps[cMap]){
+          cLOLitemData[key] = LOLitemData[key]
+        }
+      }
+    }
+  }else if(tags.length==1){
+    for (const key in LOLitemData) {
+      if(LOLitemData.hasOwnProperty(key)){
+        
+        var cItem = LOLitemData[key]
+        if(cItem.maps[cMap]&&cItem.tags.includes(tags[0])){
+          cLOLitemData[key] = LOLitemData[key]
+        }
+      }
+    }
+  }else if(tags.length>1){
+    for (const key in LOLitemData) {
+      if(LOLitemData.hasOwnProperty(key)){
+        
+        var cItem = LOLitemData[key]
+        if(cItem.maps[cMap]){
+          
+          // 交集还是并集 默认交集
+          if(!union){
+
+            if(cItem.tags.length>tags.length){
+              var flag = true
+              for(var i = 0 ; i <tags.length;i++){
+                if(!cItem.tags.includes(tags[i])){
+                  flag = false
+                }
+              }
+              if(flag){
+                cLOLitemData[key] = LOLitemData[key]
+              }
+            }
+            
+          }else{
+            
+              var flag = false
+              for(var i = 0 ; i <tags.length;i++){
+                if(cItem.tags.includes(tags[i])){
+                  flag = true
+                  break;
+                }
+              }
+              if(flag){
+                cLOLitemData[key] = LOLitemData[key]
+              }
+            
+          }
+
+        }
+      }
+    }
+  }
+  
+  return ObjToArray(cLOLitemData)
+}
 // 价格从低到高
 function sortPrice(a,b){
   var itema = Object.values(a)[0]
   var itemb = Object.values(b)[0]
   return itema.gold.total-itemb.gold.total
 }
-LOLitemDataArr.sort(sortPrice)
-console.log(LOLitemDataArr)
-
-// 标签分类tag{}
-var itemObj = {}
-for (const item of LOLitemDataArr) {
-  
-  
-  var tags = Object.values(item)[0].tags
-  for(const k of tags){
-    var j = k.toUpperCase()
-    if(itemObj[j]){
-      itemObj[j].push(Object.keys(item)[0])
-    }else{
-      itemObj[j] = []
-    }
-    
-  }
-}
-console.log(itemObj)
 
 Page({
 
@@ -44,7 +149,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 多选checkbox
+    selectItems:[]
   },
 
   /**
@@ -52,127 +158,20 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    this.initData('zhsxg')
+    
     this.setData({
+      lolData: filterEquip(currentMapValue,currentTagsValue).sort(sortPrice),
+      currentMap: currentMapValue,
       currentTags:'ALL'
     })
+    
     wx.getSystemInfo({
       success: function(res) {
-        console.log(res.windowHeight)
+        
         that.setData({
           availableHeight: res.windowHeight
         })
       },
-    })
-  },
-  // 设置所有物装备
-  initData(map){
-    var cMap = ''
-    if (map == 'zhsxg') {
-      cMap = 11
-    } else if (map == 'jddld') {
-      cMap = 12
-    } else if (map == 'nqcl') {
-      cMap = 10
-    }
-    LOLitemDataArr = LOLitemDataArr.filter((item) => {
-      return Object.values(item)[0].maps[map ?cMap:11]
-    })
-    this.setData({
-      lolData: LOLitemDataArr,
-      currentMap: map?map:'zhsxg'
-    })
-  },
-  /**
-   * 选类别
-   */
-  onChangeItem(e){
-    console.log(e)
-    var tag = e.target.dataset.tags
-    if(tag){
-      var currentItemObj = itemObj[tag]
-      var currentData = []
- 
-      if(tag == 'ALL'){
-        currentData =LOLitemDataArr
-      }else if(tag=='START'){
-        // JUNGLE LANE
-        currentItemObj = itemObj['JUNGLE'].concat(itemObj['LANE'])
-        currentItemObj.forEach(element => {
-          currentData.push({
-            [element]:LOLitemData[element]
-          })
-        });
-      }else if(tag=='TOOLS'){
-        // "GOLDPER", "CONSUMABLE", "VISION"
-        currentItemObj = itemObj['GOLDPER'].concat(itemObj['CONSUMABLE']).concat(itemObj['VISION'])
-        currentItemObj.forEach(element => {
-          currentData.push({
-            [element]:LOLitemData[element]
-          })
-        });
-      }else if(tag=='DEFENSE'){
-        // "HEALTH", "HEALTHREGEN", "ARMOR", "SPELLBLOCK"
-        currentItemObj = itemObj['HEALTH'].concat(itemObj['HEALTHREGEN']).concat(itemObj['ARMOR']).concat(itemObj['SPELLBLOCK'])
-        currentItemObj.forEach(element => {
-          currentData.push({
-            [element]:LOLitemData[element]
-          })
-        });
-      }else if(tag=='ATTACK'){
-        // "LIFESTEAL", "CRITICALSTRIKE", "ATTACKSPEED", "DAMAGE"
-        currentItemObj = itemObj['LIFESTEAL'].concat(itemObj['CRITICALSTRIKE']).concat(itemObj['ATTACKSPEED']).concat(itemObj['DAMAGE'])
-        currentItemObj.forEach(element => {
-          currentData.push({
-            [element]:LOLitemData[element]
-          })
-        });
-      }else if(tag=='MAGIC'){
-        // "MANA", "SPELLDAMAGE", "COOLDOWNREDUCTION", "MANAREGEN"
-        currentItemObj = itemObj['MANA'].concat(itemObj['SPELLDAMAGE']).concat(itemObj['COOLDOWNREDUCTION']).concat(itemObj['MANAREGEN'])
-        currentItemObj.forEach(element => {
-          currentData.push({
-            [element]:LOLitemData[element]
-          })
-        });
-      }else if(tag=='MOVEMENT'){
-        // "BOOTS", "NONBOOTSMOVEMENT"
-        currentItemObj = itemObj['BOOTS'].concat(itemObj['NONBOOTSMOVEMENT'])
-        currentItemObj.forEach(element => {
-          currentData.push({
-            [element]:LOLitemData[element]
-          })
-        });
-      }
-      else{
-        currentItemObj.forEach(element => {
-          currentData.push({
-            [element]:LOLitemData[element]
-          })
-        });
-      }
-      
-      currentData.sort(function(a,b){
-        var itema = Object.values(a)[0]
-        var itemb = Object.values(b)[0]
-        return itema.gold.total-itemb.gold.total
-      })
-      currentData = currentData.filter((item) => {
-        return Object.values(item)[0].maps[currentMap]
-      })
-      this.setData({
-        lolData:currentData,
-        currentTags:tag,
-        selectItems:[]
-      })
-    }
-    
-  },
-  toEquipDetail(e){
-    console.log(e)
-    var index = e.currentTarget.dataset.index
-    wx.navigateTo({
-      url: '/pages/equipment/equipment?index='+index,
     })
   },
   onChooseMap(e) {
@@ -180,28 +179,74 @@ Page({
     this.setData({
       currentMap:map
     })
-    this.initData(map)
-    if (map == 'zhsxg'){
-      currentMap = 11
-    } else if (map =='jddld'){
-      currentMap = 12
-    }else if(map=='nqcl'){
-      currentMap = 10
-    }
-    var currentData = this.data.lolData.filter((item) => {
-      return Object.values(item)[0].maps[currentMap]
-    })
+    currentMapValue = map
+    
     this.setData({
-      lolData: currentData
+      lolData: filterEquip(currentMapValue,currentTagsValue).sort(sortPrice),
     })
+  },
+  /**
+   * 选类别
+   */
+  onChangeItem(e){
+    
+    var tag = e.target.dataset.tags
+    if(tag){
+      
+ 
+      if(tag[0] == 'ALL'){
+        currentTagsValue = []
+      }else if(tag[0] =='START'){
+        // Jungle Lane
+        currentTagsValue = ['Jungle', 'Lane']
+      }else if(tag[0] =='TOOLS'){
+        // "GoldPer", "Consumable", "Vision"
+        currentTagsValue =["GoldPer", "Consumable", "Vision"]
+      }else if(tag[0] =='DEFENSE'){
+        // "Health", "HealthRegen", "Armor", "SpellBlock"
+        currentTagsValue=["Health", "HealthRegen", "Armor", "SpellBlock"]
+      }else if(tag[0] =='ATTACK'){
+        // "LifeSteal", "CriticalStrike", "AttackSpeed", "Damage"
+        currentTagsValue =["LifeSteal", "CriticalStrike", "AttackSpeed", "Damage"]
+      }else if(tag[0] =='MAGIC'){
+        // "Mana", "SpellDamage", "CooldownReduction", "ManaRegen"
+        currentTagsValue=["Mana", "SpellDamage", "CooldownReduction", "ManaRegen"]
+      }else if(tag[0] =='MOVEMENT'){
+        // "Boots", "NonbootsMovement"
+        currentTagsValue =["Boots", "NonbootsMovement"]
+      }
+      else{
+        currentTagsValue = tag
+      }
+      
+      this.setData({
+        lolData:filterEquip(currentMapValue,currentTagsValue,true).sort(sortPrice),
+        currentTags:tag[0],
+        selectItems:[]
+      })
+    }
+    
   },
   checkboxChange(e){
-    console.log(e)
+    var selectItems = e.detail.value
+    
     this.setData({
       currentTags:'',
-      selectItems:e.detail.value
+      selectItems:selectItems,
+      lolData:filterEquip(currentMapValue,selectItems).sort(sortPrice),
+      canSelect:filterToCanSelect(currentMapValue,selectItems)
+    })
+
+  },
+  toEquipDetail(e){
+    
+    var index = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url: '/pages/equipment/equipment?index='+index,
     })
   },
+  
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
