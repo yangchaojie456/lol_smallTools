@@ -1,4 +1,4 @@
-var LOLitemjs = require('../equipment/lolItem.js')
+var LOLitemjs = require('../lolItem.js')
 // console.log(LOLitemjs.data)
 var LOLitemData = LOLitemjs.data
 
