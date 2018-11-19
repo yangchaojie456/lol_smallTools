@@ -14,83 +14,83 @@
         </view>
         <!-- 选装备属性 -->
         <checkbox-group bindchange="checkboxChange">             
-          <view class=' equipment-index-items-title {{currentTags=="ALL"?"currentItem":""}}' data-tags="ALL" catchtap="onChangeItem">
+          <view class=' equipment-index-items-title {{currentTags=="ALL"?"currentItem":""}}' data-tags="{{['ALL']}}" catchtap="onChangeItem">
             所有物品
           </view>
-          <view class='equipment-index-items-title {{currentTags=="START"?"currentItem":""}}' data-tags="START" catchtap="onChangeItem">
+          <view class='equipment-index-items-title {{currentTags=="START"?"currentItem":""}}' data-tags="{{['START']}}" catchtap="onChangeItem">
             初始物品
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"JUNGLE")?"currentTag":""}} {{currentTags=="JUNGLE"?"currentItem":""}}' data-tags="JUNGLE" catchtap="onChangeItem">
-            打野<checkbox value="JUNGLE" checked="{{tools.isSelect(selectItems,'JUNGLE')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Jungle")?"currentTag":""}} {{currentTags=="Jungle"?"currentItem":""}}' data-tags="{{['Jungle']}}" catchtap="onChangeItem">
+            打野<checkbox value="Jungle" checked="{{tools.isSelect(selectItems,'Jungle')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Jungle')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"LANE")?"currentTag":""}} {{currentTags=="LANE"?"currentItem":""}}' data-tags="LANE" catchtap="onChangeItem">
-            对线<checkbox value="LANE" checked="{{tools.isSelect(selectItems,'LANE')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Lane")?"currentTag":""}} {{currentTags=="Lane"?"currentItem":""}}' data-tags="{{['Lane']}}" catchtap="onChangeItem">
+            对线<checkbox value="Lane" checked="{{tools.isSelect(selectItems,'Lane')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Lane')}}"/>
           </view>
-          <view class='equipment-index-items-title {{currentTags=="TOOLS"?"currentItem":""}}' data-tags="TOOLS" catchtap="onChangeItem">
+          <view class='equipment-index-items-title {{currentTags=="TOOLS"?"currentItem":""}}' data-tags="{{['TOOLS']}}" catchtap="onChangeItem">
             工具
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"CONSUMABLE")?"currentTag":""}} {{currentTags=="CONSUMABLE"?"currentItem":""}}' data-tags="CONSUMABLE" catchtap="onChangeItem">
-            消耗品<checkbox value="CONSUMABLE" checked="{{tools.isSelect(selectItems,'CONSUMABLE')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Consumable")?"currentTag":""}} {{currentTags=="Consumable"?"currentItem":""}}' data-tags="{{['Consumable']}}" catchtap="onChangeItem">
+            消耗品<checkbox value="Consumable" checked="{{tools.isSelect(selectItems,'Consumable')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Consumable')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"GOLDPER")?"currentTag":""}} {{currentTags=="GOLDPER"?"currentItem":""}}' data-tags="GOLDPER" catchtap="onChangeItem">
-            工资装<checkbox value="GOLDPER" checked="{{tools.isSelect(selectItems,'GOLDPER')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"GoldPer")?"currentTag":""}} {{currentTags=="GoldPer"?"currentItem":""}}' data-tags="{{['GoldPer']}}" catchtap="onChangeItem">
+            工资装<checkbox value="GoldPer" checked="{{tools.isSelect(selectItems,'GoldPer')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'GoldPer')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"VISION")?"currentTag":""}} {{currentTags=="VISION"?"currentItem":""}}' data-tags="VISION" catchtap="onChangeItem">
-            视野&饰品<checkbox value="VISION" checked="{{tools.isSelect(selectItems,'VISION')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Vision")?"currentTag":""}} {{currentTags=="Vision"?"currentItem":""}}' data-tags="{{['Vision']}}" catchtap="onChangeItem">
+            视野&饰品<checkbox value="Vision" checked="{{tools.isSelect(selectItems,'Vision')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Vision')}}"/>
           </view>
-          <view class='equipment-index-items-title {{currentTags=="DEFENSE"?"currentItem":""}}' data-tags="DEFENSE" catchtap="onChangeItem">
+          <view class='equipment-index-items-title {{currentTags=="DEFENSE"?"currentItem":""}}' data-tags="{{['DEFENSE']}}" catchtap="onChangeItem">
             防御类
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"ARMOR")?"currentTag":""}} {{currentTags=="ARMOR"?"currentItem":""}}' data-tags="ARMOR" catchtap="onChangeItem">
-            护甲<checkbox value="ARMOR" checked="{{tools.isSelect(selectItems,'ARMOR')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Armor")?"currentTag":""}} {{currentTags=="Armor"?"currentItem":""}}' data-tags="{{['Armor']}}" catchtap="onChangeItem">
+            护甲<checkbox value="Armor" checked="{{tools.isSelect(selectItems,'Armor')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Armor')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"HEALTH")?"currentTag":""}} {{currentTags=="HEALTH"?"currentItem":""}}' data-tags="HEALTH" catchtap="onChangeItem">
-            生命值<checkbox value="HEALTH" checked="{{tools.isSelect(selectItems,'HEALTH')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Health")?"currentTag":""}} {{currentTags=="Health"?"currentItem":""}}' data-tags="{{['Health']}}" catchtap="onChangeItem">
+            生命值<checkbox value="Health" checked="{{tools.isSelect(selectItems,'Health')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Health')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"HEALTHREGEN")?"currentTag":""}} {{currentTags=="HEALTHREGEN"?"currentItem":""}}' data-tags="HEALTHREGEN" catchtap="onChangeItem">
-            生命回复<checkbox value="HEALTHREGEN" checked="{{tools.isSelect(selectItems,'HEALTHREGEN')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"HealthRegen")?"currentTag":""}} {{currentTags=="HealthRegen"?"currentItem":""}}' data-tags="{{['HealthRegen']}}" catchtap="onChangeItem">
+            生命回复<checkbox value="HealthRegen" checked="{{tools.isSelect(selectItems,'HealthRegen')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'HealthRegen')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"SPELLBLOCK")?"currentTag":""}} {{currentTags=="SPELLBLOCK"?"currentItem":""}}' data-tags="SPELLBLOCK" catchtap="onChangeItem">
-            魔法抗性<checkbox value="SPELLBLOCK" checked="{{tools.isSelect(selectItems,'SPELLBLOCK')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"SpellBlock")?"currentTag":""}} {{currentTags=="SpellBlock"?"currentItem":""}}' data-tags="{{['SpellBlock']}}" catchtap="onChangeItem">
+            魔法抗性<checkbox value="SpellBlock" checked="{{tools.isSelect(selectItems,'SpellBlock')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'SpellBlock')}}"/>
           </view>
-          <view class='equipment-index-items-title {{currentTags=="ATTACK"?"currentItem":""}}' data-tags="ATTACK" catchtap="onChangeItem">
+          <view class='equipment-index-items-title {{currentTags=="ATTACK"?"currentItem":""}}' data-tags="{{['ATTACK']}}" catchtap="onChangeItem">
             攻击类
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"ATTACKSPEED")?"currentTag":""}} {{currentTags=="ATTACKSPEED"?"currentItem":""}}' data-tags="ATTACKSPEED" catchtap="onChangeItem">
-            攻击速度<checkbox value="ATTACKSPEED" checked="{{tools.isSelect(selectItems,'ATTACKSPEED')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"AttackSpeed")?"currentTag":""}} {{currentTags=="AttackSpeed"?"currentItem":""}}' data-tags="{{['AttackSpeed']}}" catchtap="onChangeItem">
+            攻击速度<checkbox value="AttackSpeed" checked="{{tools.isSelect(selectItems,'AttackSpeed')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'AttackSpeed')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"CRITICALSTRIKE")?"currentTag":""}} {{currentTags=="CRITICALSTRIKE"?"currentItem":""}}' data-tags="CRITICALSTRIKE" catchtap="onChangeItem">
-            暴击<checkbox value="CRITICALSTRIKE" checked="{{tools.isSelect(selectItems,'CRITICALSTRIKE')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"CriticalStrike")?"currentTag":""}} {{currentTags=="CriticalStrike"?"currentItem":""}}' data-tags="{{['CriticalStrike']}}" catchtap="onChangeItem">
+            暴击<checkbox value="CriticalStrike" checked="{{tools.isSelect(selectItems,'CriticalStrike')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'CriticalStrike')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"DAMAGE")?"currentTag":""}} {{currentTags=="DAMAGE"?"currentItem":""}}' data-tags="DAMAGE" catchtap="onChangeItem">
-            攻击力<checkbox value="DAMAGE" checked="{{tools.isSelect(selectItems,'DAMAGE')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Damage")?"currentTag":""}} {{currentTags=="Damage"?"currentItem":""}}' data-tags="{{['Damage']}}" catchtap="onChangeItem">
+            攻击力<checkbox value="Damage" checked="{{tools.isSelect(selectItems,'Damage')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Damage')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"LIFESTEAL")?"currentTag":""}} {{currentTags=="LIFESTEAL"?"currentItem":""}}' data-tags="LIFESTEAL" catchtap="onChangeItem">
-            生命偷取<checkbox value="LIFESTEAL" checked="{{tools.isSelect(selectItems,'LIFESTEAL')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"LifeSteal")?"currentTag":""}} {{currentTags=="LifeSteal"?"currentItem":""}}' data-tags="{{['LifeSteal']}}" catchtap="onChangeItem">
+            生命偷取<checkbox value="LifeSteal" checked="{{tools.isSelect(selectItems,'LifeSteal')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'LifeSteal')}}"/>
           </view>
-          <view class='equipment-index-items-title {{currentTags=="MAGIC"?"currentItem":""}}' data-tags="MAGIC" catchtap="onChangeItem">
+          <view class='equipment-index-items-title {{currentTags=="MAGIC"?"currentItem":""}}' data-tags="{{['MAGIC']}}" catchtap="onChangeItem">
             法术类
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"COOLDOWNREDUCTION")?"currentTag":""}} {{currentTags=="COOLDOWNREDUCTION"?"currentItem":""}}' data-tags="COOLDOWNREDUCTION" catchtap="onChangeItem">
-            冷却缩减<checkbox value="COOLDOWNREDUCTION" checked="{{tools.isSelect(selectItems,'COOLDOWNREDUCTION')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"CooldownReduction")?"currentTag":""}} {{currentTags=="CooldownReduction"?"currentItem":""}}' data-tags="{{['CooldownReduction']}}" catchtap="onChangeItem">
+            冷却缩减<checkbox value="CooldownReduction" checked="{{tools.isSelect(selectItems,'CooldownReduction')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'CooldownReduction')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"MANA")?"currentTag":""}} {{currentTags=="MANA"?"currentItem":""}}' data-tags="MANA" catchtap="onChangeItem">
-            法力值<checkbox value="MANA" checked="{{tools.isSelect(selectItems,'MANA')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Mana")?"currentTag":""}} {{currentTags=="Mana"?"currentItem":""}}' data-tags="{{['Mana']}}" catchtap="onChangeItem">
+            法力值<checkbox value="Mana" checked="{{tools.isSelect(selectItems,'Mana')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Mana')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"MANAREGEN")?"currentTag":""}} {{currentTags=="MANAREGEN"?"currentItem":""}}' data-tags="MANAREGEN" catchtap="onChangeItem">
-            法力回复<checkbox value="MANAREGEN" checked="{{tools.isSelect(selectItems,'MANAREGEN')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"ManaRegen")?"currentTag":""}} {{currentTags=="ManaRegen"?"currentItem":""}}' data-tags="{{['ManaRegen']}}" catchtap="onChangeItem">
+            法力回复<checkbox value="ManaRegen" checked="{{tools.isSelect(selectItems,'ManaRegen')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'ManaRegen')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"SPELLDAMAGE")?"currentTag":""}} {{currentTags=="SPELLDAMAGE"?"currentItem":""}}' data-tags="SPELLDAMAGE" catchtap="onChangeItem">
-            法术强度<checkbox value="SPELLDAMAGE" checked="{{tools.isSelect(selectItems,'SPELLDAMAGE')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"SpellDamage")?"currentTag":""}} {{currentTags=="SpellDamage"?"currentItem":""}}' data-tags="{{['SpellDamage']}}" catchtap="onChangeItem">
+            法术强度<checkbox value="SpellDamage" checked="{{tools.isSelect(selectItems,'SpellDamage')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'SpellDamage')}}"/>
           </view>
-          <view class='equipment-index-items-title {{currentTags=="MOVEMENT"?"currentItem":""}}' data-tags="MOVEMENT" catchtap="onChangeItem">
+          <view class='equipment-index-items-title {{currentTags=="MOVEMENT"?"currentItem":""}}' data-tags="{{['MOVEMENT']}}" catchtap="onChangeItem">
             移动速度
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"BOOTS")?"currentTag":""}} {{currentTags=="BOOTS"?"currentItem":""}}' data-tags="BOOTS" catchtap="onChangeItem">
-            鞋子<checkbox value="BOOTS" checked="{{tools.isSelect(selectItems,'BOOTS')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"Boots")?"currentTag":""}} {{currentTags=="Boots"?"currentItem":""}}' data-tags="{{['Boots']}}" catchtap="onChangeItem">
+            鞋子<checkbox value="Boots" checked="{{tools.isSelect(selectItems,'Boots')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'Boots')}}"/>
           </view>
-          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"NONBOOTSMOVEMENT")?"currentTag":""}} {{currentTags=="NONBOOTSMOVEMENT"?"currentItem":""}}' data-tags="NONBOOTSMOVEMENT" catchtap="onChangeItem">
-            其它移动速度物品<checkbox value="NONBOOTSMOVEMENT" checked="{{tools.isSelect(selectItems,'NONBOOTSMOVEMENT')}}"/>
+          <view class='equipment-index-items-checkbox {{tools.isSelect(selectItems,"NonbootsMovement")?"currentTag":""}} {{currentTags=="NonbootsMovement"?"currentItem":""}}' data-tags="{{['NonbootsMovement']}}" catchtap="onChangeItem">
+            其它移动速度物品<checkbox value="NonbootsMovement" checked="{{tools.isSelect(selectItems,'NonbootsMovement')}}" disabled="{{selectItems.length!=0&&tools.isCanSelect(canSelect,'NonbootsMovement')}}"/>
           </view>
         </checkbox-group>
       </view>
