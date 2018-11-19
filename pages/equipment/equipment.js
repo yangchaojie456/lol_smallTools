@@ -2,8 +2,31 @@
 var WxParse = require('../../wxParse/wxParse.js');
 var description = ''
 var LOLitemjs = require('./lolItem.js')
+var LOLitemData = LOLitemjs.data
 console.log(LOLitemjs)
-
+/**
+ * 可合成的装备
+ * @param {String} map 地图
+ * @param {Array} indexs 索引集合
+ */
+function intoEquip(map,indexs){
+  var arr = []
+  var cMap = 11
+  if (map == 'zhsxg') {
+    cMap = 11
+  } else if (map == 'jddld') {
+    cMap = 12
+  } else if (map == 'nqcl') {
+    cMap = 10
+  }
+  for(var i = 0 ; i <indexs.length;i++){
+    var cItem = LOLitemData[indexs[i]]
+    if(cItem.maps[cMap]){
+      arr.push(indexs[i])
+    }
+  }
+  return arr
+}
 Page({
 
   /**
@@ -18,13 +41,49 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.index)
+    console.log(options.map)
     this.setData({
       lolData:LOLitemjs.data,
+      currentMap:options.map
     })
     this.changeEquip({}, options.index)
     
   },
-
+  // 更新装备描述
+  updateEquipDes(description){
+    WxParse.wxParse('description', 'html', description, this, 5);
+  },
+  chooseEquip(e){
+    var index = e.currentTarget.dataset.index
+    
+    description = LOLitemjs.data[index].description
+    this.updateEquipDes(description)
+    this.setData({      
+      desItem:index
+    })
+    if (LOLitemjs.data[index].into){
+      this.setData({
+        intoEquip: intoEquip(this.data.currentMap,LOLitemjs.data[index].into)
+      })
+    }
+  },
+  changeEquip(e,i){
+    
+    var index = e.currentTarget?e.currentTarget.dataset.index:i
+    console.log(LOLitemjs.data[index])
+    
+    description = LOLitemjs.data[index].description
+    this.updateEquipDes(description)
+    this.setData({
+      currentItem: index,
+      desItem:index
+    })
+    if (LOLitemjs.data[index].into){
+      this.setData({
+        intoEquip: intoEquip(this.data.currentMap,LOLitemjs.data[index].into)
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -73,39 +132,5 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 更新装备描述
-  updateEquipDes(description){
-    WxParse.wxParse('description', 'html', description, this, 5);
-  },
-  chooseEquip(e){
-    var index = e.currentTarget.dataset.index
-    
-    description = LOLitemjs.data[index].description
-    this.updateEquipDes(description)
-    this.setData({      
-      desItem:index
-    })
-    if (LOLitemjs.data[index].into){
-      this.setData({
-        intoEquip: LOLitemjs.data[index].into
-      })
-    }
-  },
-  changeEquip(e,i){
-    
-    var index = e.currentTarget?e.currentTarget.dataset.index:i
-    console.log(LOLitemjs.data[index])
-    
-    description = LOLitemjs.data[index].description
-    this.updateEquipDes(description)
-    this.setData({
-      currentItem: index,
-      desItem:index
-    })
-    if (LOLitemjs.data[index].into){
-      this.setData({
-        intoEquip: LOLitemjs.data[index].into
-      })
-    }
-  }
+  
 })
