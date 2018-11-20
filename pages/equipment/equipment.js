@@ -1,7 +1,7 @@
 // pages/equipment/equipment.js
 var WxParse = require('../../wxParse/wxParse.js');
 var description = ''
-var LOLitemjs = require('../lolItem.js')
+var LOLitemjs = require('../newLOL.js')
 var LOLitemData = LOLitemjs.data
 console.log(LOLitemjs)
 /**
