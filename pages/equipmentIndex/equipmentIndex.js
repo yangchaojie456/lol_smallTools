@@ -1,4 +1,4 @@
-var LOLitemjs = require('../lolItem.js')
+var LOLitemjs = require('../newLOL.js')
 // console.log(LOLitemjs.data)
 var LOLitemData = LOLitemjs.data
 
@@ -242,7 +242,7 @@ Page({
     
     var index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '/pages/equipment/equipment?index='+index,
+      url: '/pages/equipment/equipment?index='+index+'&map='+currentMapValue,
     })
   },
   
