@@ -1,0 +1,50 @@
+<view class='champion-index-home'>
+  <view class='champion-index-home-left'>
+    <view class='champion-index-search'>
+      <input  bindinput="championSearch" placeholder-class="champion-index-search-placeholder" placeholder="搜索" confirm-type="search"/>
+    </view>
+    <view class='hr'></view>
+    <view class='champion-index-filter'>
+      <view class='champion-index-filter-sort'>
+        排序
+      </view>
+      <view class='champion-index-filter-content'>
+        <checkbox-group bindchange="checkboxChange">             
+          
+          <view class='current-item'>
+            <checkbox value="Jungle"/> 刺客
+          </view>
+          <view>
+            <checkbox value="Jungle"/> 战士
+          </view>
+          <view>
+            <checkbox value="Jungle"/> 法师
+          </view>
+          <view>
+            <checkbox value="Jungle"/> 射手
+          </view>
+          <view>
+            <checkbox value="Jungle"/> 辅助
+          </view>
+          <view>
+            <checkbox value="Jungle"/> 坦克
+          </view>
+
+        </checkbox-group>
+      </view>
+    </view>
+  </view>
+  <view class='champion-index-home-right'>
+    <view class='champion-index-home-item'>
+      
+    </view>
+    <view class='champion-index-home-item'>
+    </view>
+    <view class='champion-index-home-item'>
+    </view>
+    <view class='champion-index-home-item'>
+    </view>
+    <view class='champion-index-home-item'>
+    </view>
+  </view>
+</view>
