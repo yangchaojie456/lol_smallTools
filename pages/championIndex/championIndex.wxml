@@ -1,50 +1,46 @@
 <view class='champion-index-home'>
   <view class='champion-index-home-left'>
     <view class='champion-index-search'>
-      <input  bindinput="championSearch" placeholder-class="champion-index-search-placeholder" placeholder="搜索" confirm-type="search"/>
+      <input  bindinput="championSearch" value="{{searchValue}}" placeholder-class="champion-index-search-placeholder" placeholder="搜索" confirm-type="search" bindconfirm="championSearchConfirm"/>
     </view>
     <view class='hr'></view>
-    <view class='champion-index-filter'>
-      <view class='champion-index-filter-sort'>
-        排序
-      </view>
+    <view></view>
+    <view class='champion-index-filter'>      
       <view class='champion-index-filter-content'>
-        <checkbox-group bindchange="checkboxChange">             
-          
-          <view class='current-item'>
-            <checkbox value="Jungle"/> 刺客
-          </view>
-          <view>
-            <checkbox value="Jungle"/> 战士
-          </view>
-          <view>
-            <checkbox value="Jungle"/> 法师
-          </view>
-          <view>
-            <checkbox value="Jungle"/> 射手
-          </view>
-          <view>
-            <checkbox value="Jungle"/> 辅助
-          </view>
-          <view>
-            <checkbox value="Jungle"/> 坦克
-          </view>
-
+        <checkbox-group bindchange="championChange">             
+          <label>
+            <checkbox value="Assassin"/> 刺客
+          </label>
+          <label>
+            <checkbox value="Fighter"/> 战士
+          </label>
+          <label>
+            <checkbox value="Mage"/> 法师
+          </label>
+          <label>
+            <checkbox value="Marksman"/> 射手
+          </label>
+          <label>
+            <checkbox value="Support"/> 辅助
+          </label>
+          <label>
+            <checkbox value="Tank"/> 坦克
+          </label>        
         </checkbox-group>
       </view>
     </view>
+    <view class='hr'></view>
+    
   </view>
   <view class='champion-index-home-right'>
-    <view class='champion-index-home-item'>
-      
-    </view>
-    <view class='champion-index-home-item'>
-    </view>
-    <view class='champion-index-home-item'>
-    </view>
-    <view class='champion-index-home-item'>
-    </view>
-    <view class='champion-index-home-item'>
-    </view>
+    <scroll-view scroll-y style="height: 100vh;" scroll-top="{{scrollTop}}">
+      <view class='champion-index-home-right-content'>
+        <view class='champion-index-home-item'wx:for="{{championData}}" wx:key="index">
+          {{item.name}}  
+        </view>
+      </view>
+    </scroll-view>
+    
+    
   </view>
 </view>
