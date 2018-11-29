@@ -1,0 +1,34 @@
+<view class='champion-detail-home'>
+  <view class='champion-detail-head'>
+    <view class='champion-detail-head-content'>
+      <image src='../../images/champion.png'></image>
+      <view class='champion-detail-head-title'>    
+        <view class='champion-detail-head-alias'>圣枪游侠</view>
+        <view class='champion-detail-head-name'>卢锡安</view>
+      </view>
+    </view>
+    <view class='champion-detail-explain'>
+      <text bindtap='chooseItem' data-index='0'>总览</text>
+      <text bindtap='chooseItem' data-index='1'>技能</text>
+      <text bindtap='chooseItem' data-index='2'>皮肤</text>
+      <view class='champion-detail-explain-bar currentItem{{itemIndex}}'></view>
+    </view>
+  </view>
+
+  <!-- 内容 -->
+  <view class='champion-detail-content'>
+      <view class='champion-detail-content-c transLatex{{itemIndex}}'>
+        <view class='champion-detail-content-zonglan'>
+        
+        </view>
+        <view class='champion-detail-content-jineng'>
+
+        </view>
+        <view class='champion-detail-content-pifu'>
+
+        </view>
+      </view>
+      
+    
+  </view>
+</view>

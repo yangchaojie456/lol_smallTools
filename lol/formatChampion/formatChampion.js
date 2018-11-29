@@ -4,14 +4,6 @@ var qs = require('querystring');
 
 // 当前游戏版本
 var version = ''
-// 异步读取
-fs.readFile('http://lol.qq.com/biz/hero/champion.js', function (err, data) {
-    if (err) {
-        return console.error(err);
-    }
-    console.log("异步读取: " + data.toString());
- });
- return false;
 
 getChampionFromTencent()
 
@@ -115,7 +107,7 @@ function getChampionFromUS(version,championData){
                     }
                 }
                 console.log(data)
-                fs.writeFile('champion.json',JSON.stringify(ChampionTencent), function(err) {
+                fs.writeFile('champion.js','module.exports='+JSON.stringify(ChampionTencent), function(err) {
                     if (err) {
                         return console.error(err);
                     }

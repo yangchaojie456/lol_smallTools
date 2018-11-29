@@ -4,9 +4,6 @@
 		"ignore": [{
       "type":"folder",
       "value":"lol"
-    },{
-      "type": "folder",
-      "value": "images"
     }]
 	},
 	"setting": {

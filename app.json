@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/championDetail/championDetail",
     "pages/championIndex/championIndex",
     "pages/equipmentIndex/equipmentIndex",
     "pages/equipment/equipment",
     "pages/index/index",
     "pages/logs/logs"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

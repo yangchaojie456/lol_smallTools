@@ -1,0 +1,99 @@
+.champion-detail-home{
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  background-size: cover;
+  background-position: top center;
+  background-image: url('https://personal-tailor.vip/images/LOL/bg.jpg');  
+  font-size: 26rpx;
+  color:white;
+  border-top: 1px solid #463714;  
+}
+.champion-detail-head{
+  padding:0 48rpx;
+  width: 100%;
+}
+.champion-detail-head-content{
+  border-bottom: 1px solid #463714;
+  padding: 28rpx 0;
+  width: 100%;
+}
+
+.champion-detail-head-content image{
+  width: 108rpx;
+  height: 108rpx;
+  float: left;
+}
+.champion-detail-head-title{
+  padding-left: 50rpx;
+}
+.champion-detail-head-alias{
+  height: 60rpx;
+  line-height: 50rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.champion-detail-explain{
+  padding-top: 10rpx;
+  position: relative;
+}
+.champion-detail-explain>text{
+  display: inline-block;
+  text-align: center;
+  width: 120rpx;
+  line-height: 60rpx;
+  
+}
+.champion-detail-explain-bar{
+  position: absolute;
+  display: inline-block;
+  background: radial-gradient(#c9bb8f, #3f3f39);
+  width: 115rpx;
+  height: 4rpx;
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  transition: all .5s;
+}
+.currentItem0{
+  left: 0;
+}
+.currentItem1{
+  left: 120rpx;
+}
+.currentItem2{
+  left: 240rpx;
+}
+
+.champion-detail-content{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.champion-detail-content-c{
+  width: 300%;
+  transition: all .5s;
+}
+.champion-detail-content-c view{
+  width: 33.3333%;
+  height: 100px;
+  float: left;
+}
+.champion-detail-content-zonglan{
+  background: red;
+}
+.champion-detail-content-jineng{
+  background: blue;
+}
+.champion-detail-content-pifu{
+  background: green;
+}
+.transLatex0{
+  transform:translateX(0);
+}
+.transLatex1{
+  transform:translateX(-33.3333%);
+}
+.transLatex2{
+  transform:translateX(-66.6666%);
+}
