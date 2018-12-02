@@ -1,6 +1,6 @@
-Í¼Æ¬´óĞ¡
+å›¾ç‰‡å¤§å°
 https://am-a.akamaihd.net/image?f=https://universe-meeps.leagueoflegends.com/v1/assets/images/aatrox-splash.jpg&resize=:500
-Ó¢ĞÛ
+è‹±é›„
 http://lol.qq.com/web201310/info-heros.shtml#Navi
 https://universe.leagueoflegends.com/en_US/champions/
 https://na.leagueoflegends.com/en/game-info/champions/
@@ -9,50 +9,87 @@ https://universe-meeps.leagueoflegends.com/v1/en_us/champion-browse/index.json
 https://universe-meeps.leagueoflegends.com/v1/en_us/search/index.json
 
 http://lol.qq.com/biz/hero/champion.js
-´øÓ¢ĞÛÊôĞÔ
+å¸¦è‹±é›„å±æ€§
 https://ddragon.leagueoflegends.com/cdn/8.23.1/data/en_US/champion.json
 
-µ¥¸öÓ¢ĞÛµÄ
-https://ddragon.leagueoflegends.com/cdn/8.23.1/data/en_US/champion/Darius.json
-http://lol.qq.com/biz/hero/Aatrox.js
-Ó¢ĞÛÆ¤·ô
+å•ä¸ªè‹±é›„çš„
+https://ddragon.leagueoflegends.com/cdn/8.23.1/data/en_US/champion/Lucian.json
+http://lol.qq.com/biz/hero/Lucian.js
+è‹±é›„çš®è‚¤
 https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lux_1.jpg
 
+//å¤´éƒ¨åŒºåŸŸæ¨¡å— nav
+getTag = function(t){
+	switch(t){
+		case "Fighter": return "æˆ˜å£«";
+		case "Mage": return "æ³•å¸ˆ";
+		case "Assassin": return "åˆºå®¢";
+		case "Tank": return "å¦å…‹";
+		case "Marksman": return "å°„æ‰‹";
+		case "Support": return "è¾…åŠ©";
+		default: return
+	}
+},
+
 "stats": {
-	"hp": 580,  ³õÊ¼ÑªÁ¿
-	"hpperlevel": 80,  Ã¿µÈ¼¶+80
-	"mp": 0,
-	"mpperlevel": 0,
-	"movespeed": 345, ÒÆ¶¯ËÙ¶È
-	"armor": 33, ÎïÀí·ÀÓùÁ¦
-	"armorperlevel": 3.25, Ã¿µÈ¼¶ÎïÀí·ÀÓù+3.25
-	"spellblock": 32.1, Ä§·¨·ÀÓùÁ¦
-	"spellblockperlevel": 1.25,  Ã¿µÈ¼¶Ä§·¨·ÀÓùÁ¦+1.25
-	"attackrange": 175, ¹¥»÷·¶Î§ 175
-	"hpregen": 5, ÑªÁ¿»Ø¸´ /5Ãë
-	"hpregenperlevel": 0.25, Ã¿µÈ¼¶¼Ó0.25
-	"mpregen": 0, À¶»Ø¸´/5Ãë
-	"mpregenperlevel": 0,
+	"hp": 580,  åˆå§‹è¡€é‡
+	"hpperlevel": 80,  æ¯ç­‰çº§+80
+	"mp": 348.88, åˆå§‹è“é‡
+	"mpperlevel": 38, æ¯ç­‰çº§+38
+	"movespeed": 345, ç§»åŠ¨é€Ÿåº¦
+	"armor": 33, ç‰©ç†é˜²å¾¡åŠ›
+	"armorperlevel": 3.25, æ¯ç­‰çº§ç‰©ç†é˜²å¾¡+3.25
+	"spellblock": 32.1, é­”æ³•é˜²å¾¡åŠ›
+	"spellblockperlevel": 1.25,  æ¯ç­‰çº§é­”æ³•é˜²å¾¡åŠ›+1.25
+	"attackrange": 175, æ”»å‡»èŒƒå›´ 175
+	"hpregen": 5, è¡€é‡å›å¤ /5ç§’
+	"hpregenperlevel": 0.25, æ¯ç­‰çº§åŠ 0.25
+	"mpregen": 8.176, è“å›å¤/5ç§’
+	"mpregenperlevel": 0.7, æ¯ç­‰çº§åŠ 0.7
+	"crit": 0, åˆå§‹æš´å‡»
+	"critperlevel": 0, æ¯ç­‰çº§åŠ 0
+	"attackdamage": 60, åŸºç¡€æ”»å‡»åŠ›
+	"attackdamageperlevel": 5, æ¯ç­‰çº§+5
+	"attackspeedperlevel": 2.5,  æ¯ç­‰çº§ + 2.5%
+	"attackspeed": 0.638 åˆå§‹æ”»å‡»é€Ÿåº¦
+}
+
+
+"stats": {
+	"hp": 571,
+	"hpperlevel": 86,
+	"mp": 348.88,
+	"mpperlevel": 38,
+	"movespeed": 335,
+	"armor": 28,
+	"armorperlevel": 3,
+	"spellblock": 30,
+	"spellblockperlevel": 0.5,
+	"attackrange": 500,
+	"hpregen": 3.75,
+	"hpregenperlevel": 0.65,
+	"mpregen": 8.176,
+	"mpregenperlevel": 0.7,
 	"crit": 0,
 	"critperlevel": 0,
-	"attackdamage": 60, »ù´¡¹¥»÷Á¦
-	"attackdamageperlevel": 5, Ã¿µÈ¼¶+5
-	"attackspeedperlevel": 2.5  Ã¿µÈ¼¶ + 2.5%
-			}
+	"attackdamage": 61,
+	"attackdamageperlevel": 2.75,
+	"attackspeedperlevel": 3.3,
+	"attackspeed": 0.638
+},
 
-
-Ó¢ĞÛµÄ¾«ÁéÍ¼
+è‹±é›„çš„ç²¾çµå›¾
 https://ddragon.leagueoflegends.com/cdn/8.22.1/img/sprite/champion0.png
 
-ÎïÆ·µÄ¾«ÁéÍ¼
+ç‰©å“çš„ç²¾çµå›¾
 https://ddragon.leagueoflegends.com/cdn/8.23.1/img/sprite/item0.png
 
-ÖÜÃâ
+å‘¨å…
 https://lol.qq.com/biz/hero/free.js?v=24&_=1542983062238
 
-ÎïÆ·
+ç‰©å“
 https://ddragon.leagueoflegends.com/cdn/8.23.1/data/en_US/item.json
-´ø¾«ÁéÍ¼Ö¸Ê¾µÄ
+å¸¦ç²¾çµå›¾æŒ‡ç¤ºçš„
 
 
 https://na.leagueoflegends.com/en/game-info/items/
@@ -60,19 +97,19 @@ http://lol.qq.com/web201310/info-item.shtml#Navi
 http://lol.qq.com/biz/hero/item.js
 
 
-·ûÎÄ
+ç¬¦æ–‡
 http://lol.qq.com/act/preseason/rune.html
 http://lol.qq.com/web201310/info-rune.shtml#Navi
 
-°æ±¾ÖĞĞÄ
+ç‰ˆæœ¬ä¸­å¿ƒ
 http://lol.qq.com/webplat/info/news_version3/152/22006/m14286/list_1.shtml
 
-10 Å¤Çú´ÔÁÖ
-11 ÕÙ»½Ê¦
-12 ¼«µØ´óÂÒ¶·
-20 Ë®¾§Ö®ºÛ
+10 æ‰­æ›²ä¸›æ—
+11 å¬å”¤å¸ˆ
+12 æåœ°å¤§ä¹±æ–—
+20 æ°´æ™¶ä¹‹ç—•
 
-ÑÕÉ«
+é¢œè‰²
 #c9aa71
 
 

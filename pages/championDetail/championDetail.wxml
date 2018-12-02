@@ -1,8 +1,9 @@
+<wxs src="./utils.wxs" module="tools" />
 <view class='champion-detail-home'>
   <view class='champion-detail-head'>
     <view class='champion-detail-head-content'>
       <image src='../../images/champion.png'></image>
-      <view class='champion-detail-head-title'>    
+      <view class='champion-detail-head-title'>
         <view class='champion-detail-head-alias'>圣枪游侠</view>
         <view class='champion-detail-head-name'>卢锡安</view>
       </view>
@@ -17,18 +18,104 @@
 
   <!-- 内容 -->
   <view class='champion-detail-content'>
-      <view class='champion-detail-content-c transLatex{{itemIndex}}'>
-        <view class='champion-detail-content-zonglan'>
-        
-        </view>
-        <view class='champion-detail-content-jineng'>
+    <view class='champion-detail-content-c transLatex{{itemIndex}}'>
+      <view class='champion-detail-content-zonglan'>
 
-        </view>
-        <view class='champion-detail-content-pifu'>
+        <view class='champion-detail-content-zonglan-info'>
+          <view class="champion-detail-content-zonglan-orientation">
+            <!-- 类型 -->
+            <view class='champion-detail-content-zonglan-categray'>
+              <text class='champion-detail-content-zonglan-categray-item' wx:for="{{tags}}" wx:key="key">{{tools.getTag(item)}}</text>
+            </view>
+            <!-- 基础属性 -->
+            <view class='champion-detail-content-zonglan-property'>
+              <view>
+                生命值：{{stats.hp}} (+{{stats.hpperlevel}}/级)
+              </view>
+              <!-- <view>
+                每等级血量+:{{stats.hpperlevel}}
+              </view> -->
+              <view>
+                法力值：{{stats.mp}} (+{{stats.mpperlevel}}/级)
+              </view>
+              <view>
+                攻击力：{{stats.attackdamage}} (+{{stats.attackdamageperlevel}}/级)
+              </view>
+              <!-- <view>
+                每等级攻击力+{{stats.attackdamageperlevel}}
+              </view> -->
+              
+              <!-- <view>
+                每等级蓝量+：{{stats.mpperlevel}}
+              </view> -->
+              <view>
+                移动速度：{{stats.movespeed}}
+              </view>
+              <view>
+                护甲：{{stats.armor}} (+{{stats.armorperlevel}}/级)
+              </view>
+              <!-- <view>
+                每等级护甲+：{{stats.armorperlevel}}
+              </view> -->
+              <view>
+                魔抗：{{stats.spellblock}} (+{{stats.spellblockperlevel}}/级)
+              </view>
+              <!-- <view>
+                每等级魔抗+：{{stats.spellblockperlevel}}
+              </view> -->
+              <view>
+                普攻范围：{{stats.attackrange}}
+              </view>
+              <view>
+                暴击：{{stats.crit}} (+{{stats.critperlevel}}%/级)
+              </view>
+              <view>
+                攻击速度：
+                <view>{{stats.attackspeed}} (+{{stats.attackspeedperlevel}}%/级)</view>
+              </view>
+              <view>
+                生命回复：
+                <view>{{stats.hpregen}} (+{{stats.hpregenperlevel}}/级)/5秒</view>
+              </view>
+              <!-- <view>
+                每等级生命回复+：{{stats.hpregenperlevel}}
+              </view> -->
+              <view>
+                法力回复：
+                <view>
+                {{stats.mpregen}} (+{{stats.mpregenperlevel}}/级)/5秒
+                </view>
+              </view>
+              <!-- <view>
+                每等级法力回复+：{{stats.mpregenperlevel}}
+              </view> -->
+              
+              <!-- <view>
+                每等级暴击+{{stats.critperlevel}}%
+              </view> -->
+              
+              <!-- <view>
+                每等级攻击速度+{{stats.attackspeedperlevel}}%
+              </view> -->
+            </view>
+          </view>
+          <view class='champion-detail-content-zonglan-radar'>
+            <ec-canvas custom-radar-class="custom-radar" id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ecRadar }}"></ec-canvas>
+            <view class='champion-detail-content-zonglan-info-ec-canvas'>
+              <ec-canvas custom-bar-class="custom-bar" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar }}"></ec-canvas>
+            </view>
+          </view>
 
         </view>
       </view>
-      
-    
+      <view class='champion-detail-content-jineng'>
+
+      </view>
+      <view class='champion-detail-content-pifu'>
+
+      </view>
+    </view>
+
+
   </view>
 </view>

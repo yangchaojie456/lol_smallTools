@@ -1,0 +1,15 @@
+//头部区域模块 nav
+var getTag = function (t) {
+  switch (t) {
+    case "Fighter": return "战士";
+    case "Mage": return "法师";
+    case "Assassin": return "刺客";
+    case "Tank": return "坦克";
+    case "Marksman": return "射手";
+    case "Support": return "辅助";
+    default: return
+  }
+}
+module.exports = {
+  getTag: getTag,
+};
