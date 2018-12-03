@@ -10,6 +10,17 @@ var getTag = function (t) {
     default: return
   }
 }
+//计算等级提升值
+var getLevelValue = function(value,levelValue,level,type){
+  var _value = ''
+  if(!type){
+    _value = value+levelValue*level+''
+  }else{
+    _value = value+value*levelValue*level/100+''
+  }
+  return _value.slice(0,6)
+}
 module.exports = {
   getTag: getTag,
+  getLevelValue: getLevelValue
 };

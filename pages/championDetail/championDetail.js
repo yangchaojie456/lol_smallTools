@@ -165,6 +165,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    levelValue:1,
     itemIndex: 0,
     ecRadar: {
       onInit: initChartRadar
@@ -187,11 +188,17 @@ Page({
       console.log(Lucian.data.tags)
       this.setData({
         tags: Lucian.data.tags,
-        stats: Lucian.data.stats
+        stats: Lucian.data.stats,
+        lore: Lucian.data.lore
       })
     })
   },
-
+  sliderChange(e){
+    
+    this.setData({
+      levelValue:e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

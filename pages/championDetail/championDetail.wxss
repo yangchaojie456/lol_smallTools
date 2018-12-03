@@ -129,7 +129,7 @@
 .champion-detail-content-zonglan-info-ec-canvas ec-canvas{
   display: inline-block;  
   position: absolute;
-  top:-80rpx;
+  top:-76rpx;
 }
 .champion-detail-content-zonglan-categray{
   padding-top: 30rpx;
@@ -137,8 +137,8 @@
 }
 .champion-detail-content-zonglan-categray-item{
   display: inline-block;
-  padding:5rpx 10rpx;
-  border: 1rpx solid #c9bb8f;
+  padding:3rpx 10rpx;
+  border: 1rpx solid #463714;
   margin: 20rpx 5rpx;
 }
 .champion-detail-content-zonglan-property{
@@ -150,4 +150,25 @@
   /* white-space: nowrap; */
   overflow: visible;
   font-size: 24rpx;
+  color:#c4b998;
+}
+.champion-detail-content-zonglan-property>view text{
+  color:#ffffff;
+}
+.champion-detail-content-zonglan-lore{
+  padding:40rpx;
+  color:#ffffff;
+  opacity: 0.7;
+}
+.champion-detail-content-zonglan-lore-title{
+  border-top: 1px solid #463714;
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.champion-detail-content-zonglan-level{
+  padding-top: 30rpx;
+  opacity: 0.7;
+}
+.champion-detail-content-zonglan-level-info{
+  text-align: center;
 }
