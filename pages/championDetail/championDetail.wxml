@@ -81,8 +81,8 @@
               <ec-canvas custom-bar-class="custom-bar" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar }}"></ec-canvas>
             </view>
             <view class='champion-detail-content-zonglan-level'>
-              <view class='champion-detail-content-zonglan-level-info'>等级：{{levelValue}}</view>
-              <slider bindchange="sliderChange" max="18" min='1' block-size="18" show-value activeColor="#937341" value='levelValue'/>
+              <view class='champion-detail-content-zonglan-level-info'>等级：{{levelValueIng}}</view>
+              <slider bindchanging="sliderChanging" bindchange="sliderChange" max="18" min='1' block-size="18" activeColor="#937341" value='levelValue'/>
             </view>
           </view>
           
@@ -93,7 +93,38 @@
         </view>
       </view>
       <view class='champion-detail-content-jineng'>
-
+        <!-- 技能 -->
+        <view class='champion-detail-content-jineng-title'>
+          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="Lucian_Passive" data-type="passive">
+            <image src='/images/Lucian_Passive.png'></image>
+            <view>P</view>
+          </view>
+          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianQ" data-type="spells">
+            <image src='/images/LucianQ.png'></image>
+            <view>Q</view>
+          </view>
+          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianW" data-type="spells">
+            <image src='/images/LucianW.png'></image>
+            <view>W</view>
+          </view>
+          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianE" data-type="spells">
+            <image src='/images/LucianE.png'></image>
+            <view>E</view>
+          </view>
+          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianR" data-type="spells">
+            <image src='/images/LucianR.png'></image>
+            <view>R</view>
+          </view>
+        </view>
+        <!-- 内容 -->
+        <view class='champion-detail-content-jineng-content'>
+          <view class='champion-detail-content-jineng-content-head'>
+            透体圣光
+          </view>
+          <view class='champion-detail-content-jineng-content-des'>
+            射出一束穿透性的圣光穿过一个目标单位，对一条线上的敌人造成85/120/155/190/225
+          </view>
+        </view>
       </view>
       <view class='champion-detail-content-pifu'>
 

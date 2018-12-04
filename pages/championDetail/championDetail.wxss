@@ -82,15 +82,41 @@
   
 }
 .champion-detail-content-jineng{
-  background: blue;
+  padding: 0 48rpx;
+  padding-top: 30rpx;
+}
+.champion-detail-content-jineng-title{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50rpx;
+  padding-bottom: 30rpx;
+  border-bottom:1px solid #362b11
+}
+.champion-detail-content-jineng-title>view{
+  width: 60rpx;
+  /* height: 60rpx;   */
+  text-align: center;
+}
+.champion-detail-content-jineng-title-image image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.champion-detail-content-jineng-content-head{
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.champion-detail-content-jineng-content{
+  padding-top: 30rpx;
+  opacity: 0.7;
 }
 .champion-detail-content-pifu{
   background: #ffffff5b;
 }
-.transLatex0{
+.transLatex1{
   transform:translateX(0);
 }
-.transLatex1{
+.transLatex0{
   transform:translateX(-33.3333%);
 }
 .transLatex2{
@@ -166,8 +192,11 @@
   margin-bottom: 20rpx;
 }
 .champion-detail-content-zonglan-level{
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   opacity: 0.7;
+}
+.champion-detail-content-zonglan-level slider{
+  margin-top: 0;
 }
 .champion-detail-content-zonglan-level-info{
   text-align: center;

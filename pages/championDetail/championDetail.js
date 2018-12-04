@@ -166,6 +166,7 @@ Page({
    */
   data: {
     levelValue:1,
+    levelValueIng:1,
     itemIndex: 0,
     ecRadar: {
       onInit: initChartRadar
@@ -186,6 +187,8 @@ Page({
     setTimeout(() => {
       console.log(Lucian)
       console.log(Lucian.data.tags)
+      
+      console.log(Lucian.data.spells)
       this.setData({
         tags: Lucian.data.tags,
         stats: Lucian.data.stats,
@@ -193,10 +196,24 @@ Page({
       })
     })
   },
+  bindChangeSpells(e){
+    console.log(e.currentTarget.dataset)
+    if (e.currentTarget.dataset.type == 'passive'){
+
+    }
+    if (e.currentTarget.dataset.type == 'spells') {
+
+    }
+  },
   sliderChange(e){
     
     this.setData({
       levelValue:e.detail.value
+    })
+  },
+  sliderChanging(e){
+    this.setData({
+      levelValueIng: e.detail.value
     })
   },
   /**
