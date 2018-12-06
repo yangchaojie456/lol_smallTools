@@ -1,5 +1,5 @@
 import * as echarts from '../../ec-canvas/echarts';
-
+var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp();
 
 function initChartRadar(canvas, width, height) {
@@ -159,6 +159,7 @@ function initChartBar(canvas, width, height) {
   chart.setOption(option);
   return chart;
 }
+var pifuImageHeight = 0
 Page({
 
   /**
@@ -168,6 +169,8 @@ Page({
     levelValue:1,
     levelValueIng:1,
     itemIndex: 0,
+    skillDes:'',
+    skillName:'',
     ecRadar: {
       onInit: initChartRadar
     },
@@ -180,29 +183,68 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    
+    wx.getSystemInfo({
+      success:(res)=> {
+        console.log(res.windowWidth)
+        pifuImageHeight = res.windowWidth*620/1052
+        this.setData({
+          pifuImageHeight: pifuImageHeight
+        })
+      },
+    })
     // 请求获取英雄接口
     var version = '8.23.1'
     // https://ddragon.leagueoflegends.com/cdn/8.23.1/data/en_US/champion/Lucian.json
     // http://lol.qq.com/biz/hero/Lucian.js
     setTimeout(() => {
       console.log(Lucian)
-      console.log(Lucian.data.tags)
       
-      console.log(Lucian.data.spells)
       this.setData({
+        currentChampion:'Lucian',
         tags: Lucian.data.tags,
         stats: Lucian.data.stats,
-        lore: Lucian.data.lore
+        lore: Lucian.data.lore,
+        spells:Lucian.data.spells,
+        passive: Lucian.data.passive,
+        skins: Lucian.data.skins
       })
     })
   },
   bindChangeSpells(e){
     console.log(e.currentTarget.dataset)
+    // 选中当前的class
+    this.setData({
+      currentSkill: e.currentTarget.dataset.index
+    })
     if (e.currentTarget.dataset.type == 'passive'){
-
+      this.setData({
+        skillDes: Lucian.data.passive.description,
+        skillName: Lucian.data.passive.name,
+        skillObj: {}
+      })
+      WxParse.wxParse('description', 'html', Lucian.data.passive.description, this, 5);
     }
     if (e.currentTarget.dataset.type == 'spells') {
-
+      Lucian.data.spells.forEach(item=>{
+        if(item.id == e.currentTarget.dataset.index){
+          WxParse.wxParse('description', 'html', item.tooltip, this, 5);
+          this.setData({
+            skillDes: item.tooltip,
+            skillName: item.name,
+          })
+          
+          // 伤害和技能冷却格式化显示
+          var skillObj = {}
+          item.leveltip.label.forEach((ele,index)=>{
+            skillObj[ele.replace('</br>','')] = item.leveltip.effect[index]
+          })
+          this.setData({
+            skillObj: skillObj
+          })
+        }
+      })
+      
     }
   },
   sliderChange(e){

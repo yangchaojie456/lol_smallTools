@@ -113,10 +113,10 @@
 .champion-detail-content-pifu{
   background: #ffffff5b;
 }
-.transLatex1{
+.transLatex0{
   transform:translateX(0);
 }
-.transLatex0{
+.transLatex1{
   transform:translateX(-33.3333%);
 }
 .transLatex2{
@@ -200,4 +200,70 @@
 }
 .champion-detail-content-zonglan-level-info{
   text-align: center;
+}
+.champion-detail-content-jineng-title-image-box image{
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+}
+.champion-detail-content-jineng-title-image-box{
+  display: inline-block;
+  position: relative;
+}
+.currentS .champion-detail-content-jineng-title-image-box::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: 2rpx solid #c9bb8f;
+  animation: borderAround 1.5s infinite linear;
+}
+
+@keyframes borderAround{
+  0%,100%{
+    clip:rect(0 60rpx 2rpx 0)
+  }
+  25%{
+    clip:rect(0 60rpx 60rpx 58rpx)
+  }
+  50%{
+    clip:rect(58rpx 60rpx 60rpx 0)
+  }
+  75%{
+    clip:rect(0 2rpx 60rpx 0)
+  }
+}
+
+.colorFF8C00{
+ color:#FF8C00; 
+}
+.color8c8c8c {
+  color:#8c8c8c ;
+}
+.color88FF88{
+  color:#88FF88;
+}
+
+.champion-detail-content-jineng-content-harm{
+  padding-top: 20rpx;
+  color: #ddd;
+}
+.champion-detail-content-pifu{
+  margin-top: 50rpx;
+}
+.champion-detail-content-pifu swiper{
+  background-color: black;
+  padding:10rpx 0;
+}
+.champion-detail-content-pifu swiper-item{
+  
+  border-radius: 100rpx;    
+  /* box-shadow: 0px 0px 10px 40px #000; */
+}
+.champion-detail-content-pifu image{
+  width: 100%;
+  
 }

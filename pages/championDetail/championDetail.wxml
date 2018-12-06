@@ -1,3 +1,4 @@
+<import src="../../wxParse/wxParse.wxml" />
 <wxs src="./utils.wxs" module="tools" />
 <view class='champion-detail-home'>
   <view class='champion-detail-head'>
@@ -30,49 +31,61 @@
             <!-- 基础属性 -->
             <view class='champion-detail-content-zonglan-property'>
               <view>
-                生命值：<text>{{tools.getLevelValue(stats.hp,stats.hpperlevel,levelValue-1)}} (+{{stats.hpperlevel}}/级)</text>
+                生命值：
+                <text>{{tools.getLevelValue(stats.hp,stats.hpperlevel,levelValue-1)}} (+{{stats.hpperlevel}}/级)</text>
               </view>
-              
+
               <view>
-                法力值：<text>{{tools.getLevelValue(stats.mp,stats.mpperlevel,levelValue-1)}} (+{{stats.mpperlevel}}/级)</text>
-              </view>
-              <view>
-                攻击力：<text>{{tools.getLevelValue(stats.attackdamage,stats.attackdamageperlevel,levelValue-1)}} (+{{stats.attackdamageperlevel}}/级)</text>
-              </view>
-              
-              <view>
-                移动速度：<text>{{stats.movespeed}}</text>
+                法力值：
+                <text>{{tools.getLevelValue(stats.mp,stats.mpperlevel,levelValue-1)}} (+{{stats.mpperlevel}}/级)</text>
               </view>
               <view>
-                护甲：<text>{{tools.getLevelValue(stats.armor,stats.armorperlevel,levelValue-1)}} (+{{stats.armorperlevel}}/级)</text>
+                攻击力：
+                <text>{{tools.getLevelValue(stats.attackdamage,stats.attackdamageperlevel,levelValue-1)}} (+{{stats.attackdamageperlevel}}/级)</text>
               </view>
-              
+
               <view>
-                魔抗：<text>{{tools.getLevelValue(stats.spellblock,stats.spellblockperlevel,levelValue-1)}} (+{{stats.spellblockperlevel}}/级)</text>
-              </view>
-              
-              <view>
-                普攻范围：<text>{{stats.attackrange}}</text>
+                移动速度：
+                <text>{{stats.movespeed}}</text>
               </view>
               <view>
-                暴击：<text>{{tools.getLevelValue(stats.crit,stats.critperlevel,levelValue-1)}} (+{{stats.critperlevel}}%/级)</text>
+                护甲：
+                <text>{{tools.getLevelValue(stats.armor,stats.armorperlevel,levelValue-1)}} (+{{stats.armorperlevel}}/级)</text>
+              </view>
+
+              <view>
+                魔抗：
+                <text>{{tools.getLevelValue(stats.spellblock,stats.spellblockperlevel,levelValue-1)}} (+{{stats.spellblockperlevel}}/级)</text>
+              </view>
+
+              <view>
+                普攻范围：
+                <text>{{stats.attackrange}}</text>
+              </view>
+              <view>
+                暴击：
+                <text>{{tools.getLevelValue(stats.crit,stats.critperlevel,levelValue-1)}} (+{{stats.critperlevel}}%/级)</text>
               </view>
               <view>
                 攻击速度：
-                <view><text>{{tools.getLevelValue(stats.attackspeed,stats.attackspeedperlevel,levelValue-1,'attackspeed')}} (+{{stats.attackspeedperlevel}}%/级)</text></view>
+                <view>
+                  <text>{{tools.getLevelValue(stats.attackspeed,stats.attackspeedperlevel,levelValue-1,'attackspeed')}} (+{{stats.attackspeedperlevel}}%/级)</text>
+                </view>
               </view>
               <view>
                 生命回复：
-                <view><text>{{tools.getLevelValue(stats.hpregen,stats.hpregenperlevel,levelValue-1)}} (+{{stats.hpregenperlevel}}/级)/5秒</text></view>
+                <view>
+                  <text>{{tools.getLevelValue(stats.hpregen,stats.hpregenperlevel,levelValue-1)}} (+{{stats.hpregenperlevel}}/级)/5秒</text>
+                </view>
               </view>
-              
+
               <view>
                 法力回复：
                 <view>
                   <text>{{tools.getLevelValue(stats.mpregen,stats.mpregenperlevel,levelValue-1)}} (+{{stats.mpregenperlevel}}/级)/5秒</text>
                 </view>
               </view>
-              
+
             </view>
           </view>
           <view class='champion-detail-content-zonglan-radar'>
@@ -82,10 +95,10 @@
             </view>
             <view class='champion-detail-content-zonglan-level'>
               <view class='champion-detail-content-zonglan-level-info'>等级：{{levelValueIng}}</view>
-              <slider bindchanging="sliderChanging" bindchange="sliderChange" max="18" min='1' block-size="18" activeColor="#937341" value='levelValue'/>
+              <slider bindchanging="sliderChanging" bindchange="sliderChange" max="18" min='1' block-size="18" activeColor="#937341" value='levelValue' />
             </view>
           </view>
-          
+
         </view>
         <view class='champion-detail-content-zonglan-lore'>
           <view class='champion-detail-content-zonglan-lore-title'>背景故事:</view>
@@ -95,39 +108,47 @@
       <view class='champion-detail-content-jineng'>
         <!-- 技能 -->
         <view class='champion-detail-content-jineng-title'>
-          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="Lucian_Passive" data-type="passive">
-            <image src='/images/Lucian_Passive.png'></image>
+          <view class='champion-detail-content-jineng-title-image {{currentSkill==passive.image.group?"currentS":""}}' bindtap='bindChangeSpells' data-index="{{passive.image.group}}" data-type="passive">
+
+            <view class='champion-detail-content-jineng-title-image-box'>
+              <image src='https://ossweb-img.qq.com/images/lol/img/passive/{{passive.image.full}}'></image>
+            </view>
             <view>P</view>
           </view>
-          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianQ" data-type="spells">
-            <image src='/images/LucianQ.png'></image>
-            <view>Q</view>
+          <view wx:for="{{spells}}" wx:key="index" class='champion-detail-content-jineng-title-image {{currentSkill==item.id?"currentS":""}}' bindtap='bindChangeSpells' data-index="{{item.id}}" data-type="spells">
+
+            <view class='champion-detail-content-jineng-title-image-box'>
+              <image src='https://ossweb-img.qq.com/images/lol/img/spell/{{item.image.full}}'></image>
+            </view>
+            <view>{{tools.getSkillName(item.id)}}</view>
           </view>
-          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianW" data-type="spells">
-            <image src='/images/LucianW.png'></image>
-            <view>W</view>
-          </view>
-          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianE" data-type="spells">
-            <image src='/images/LucianE.png'></image>
-            <view>E</view>
-          </view>
-          <view class='champion-detail-content-jineng-title-image' bindtap='bindChangeSpells' data-index="LucianR" data-type="spells">
-            <image src='/images/LucianR.png'></image>
-            <view>R</view>
-          </view>
+
+
+
         </view>
         <!-- 内容 -->
         <view class='champion-detail-content-jineng-content'>
           <view class='champion-detail-content-jineng-content-head'>
-            透体圣光
+            {{skillName}}
           </view>
           <view class='champion-detail-content-jineng-content-des'>
-            射出一束穿透性的圣光穿过一个目标单位，对一条线上的敌人造成85/120/155/190/225
+            <!-- {{skillDes}} -->
+            <template is="wxParse" data="{{wxParseData:description.nodes}}" />
+          </view>
+
+          <view class='champion-detail-content-jineng-content-harm'>
+            <view wx:for="{{skillObj}}" wx:key="index">{{index}} : {{item}}</view>
           </view>
         </view>
       </view>
       <view class='champion-detail-content-pifu'>
-
+        <swiper vertical="{{false}}" style='height:{{pifuImageHeight}}px'>
+          <block wx:for="{{skins}}" wx:key="index">
+            <swiper-item>
+              <image src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{currentChampion}}_{{item.num}}.jpg" class="slide-image" width="355" height="150" />
+            </swiper-item>
+          </block>
+        </swiper>
       </view>
     </view>
 

@@ -20,7 +20,12 @@ var getLevelValue = function(value,levelValue,level,type){
   }
   return _value.slice(0,6)
 }
+// 返回QWRE
+var getSkillName = function(str){
+  return str.slice(-1)
+}
 module.exports = {
   getTag: getTag,
-  getLevelValue: getLevelValue
+  getLevelValue: getLevelValue,
+  getSkillName: getSkillName
 };
