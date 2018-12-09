@@ -12,3 +12,6 @@
 view{
   box-sizing: border-box;
 }
+page{
+  background: black;
+}

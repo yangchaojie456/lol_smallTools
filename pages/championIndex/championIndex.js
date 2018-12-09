@@ -1,5 +1,4 @@
-var champion = require('../champion.js')
-var championData = champion.data
+var championData = null
 Page({
 
   /**
@@ -14,11 +13,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(championData)
+    var champion = wx.getStorageSync('championList')    
+    championData = champion.data    
     this.setData({
       championData: championData
     })
     
+  },
+  shwoChamppionDetail(e){
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/championDetail/championDetail?id=' + id
+    })
   },
   championSearchConfirm(e){
     console.log(e.detail.value)

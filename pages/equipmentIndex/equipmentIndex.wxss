@@ -3,7 +3,7 @@
   height: 100vh;
   background-size: cover;
   background-position: top center;
-  background-image: url('https://personal-tailor.vip/images/LOL/bg.jpg');
+  background-image: url('https://lol.personal-tailor.vip/images/bg.jpg');
   padding:10rpx;
   display: flex;
   justify-content: space-between;

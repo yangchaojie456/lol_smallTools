@@ -7,7 +7,7 @@
     <view class='equipment-compound-scroll'>
       <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
         <view class='equipment-compound-scroll-image' wx:for="{{intoEquip}}" wx:key="{{index}}" data-index="{{item}}" bindtap='changeEquip'>
-          <image src='//ossweb-img.qq.com/images/lol/img/item/{{item}}.png'></image>
+          <image lazy-load src='//ossweb-img.qq.com/images/lol/img/item/{{item}}.png'></image>
         </view>
       </scroll-view>
     </view>

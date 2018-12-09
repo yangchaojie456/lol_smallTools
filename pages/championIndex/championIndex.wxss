@@ -4,7 +4,7 @@
   background-color: black;
   background-size: cover;
   background-position: top center;
-  background-image: url('https://personal-tailor.vip/images/LOL/bg.jpg');
+  background-image: url('https://lol.personal-tailor.vip/images/bg.jpg');
   padding: 0 10rpx;
   display: flex;
   justify-content: space-between;
@@ -51,6 +51,19 @@
   height: 167rpx;
   background: gray;
   margin-bottom: 10rpx;
+  position: relative;
+}
+.champion-index-home-item image{
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.champion-index-home-item-name{
+  position: absolute;
+  bottom: 5rpx;
+  font-size: 20rpx;
+  width: 100%;
+  text-align: center;
 }
 
 /*  重写 checkbox 样式  */

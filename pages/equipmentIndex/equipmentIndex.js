@@ -1,6 +1,6 @@
-var LOLitemjs = require('../newLOL.js')
-// console.log(LOLitemjs.data)
-var LOLitemData = LOLitemjs.data
+var LOLitemjs = null
+
+var LOLitemData = null
 
 var currentMapValue = 'zhsxg'
 var currentTagsValue = []
@@ -157,6 +157,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    LOLitemjs = wx.getStorageSync('equipList')
+
+    LOLitemData = LOLitemjs.data
+    
     var that = this
     
     this.setData({
@@ -242,7 +246,7 @@ Page({
     
     var index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '/pages/equipment/equipment?index='+index+'&map='+currentMapValue,
+      url: '/pages/equipmentDetail/equipmentDetail?index='+index+'&map='+currentMapValue,
     })
   },
   

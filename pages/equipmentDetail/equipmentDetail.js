@@ -1,9 +1,10 @@
 // pages/equipment/equipment.js
 var WxParse = require('../../wxParse/wxParse.js');
+
 var description = ''
-var LOLitemjs = require('../newLOL.js')
-var LOLitemData = LOLitemjs.data
-console.log(LOLitemjs)
+var LOLitemjs = null
+var LOLitemData = null
+
 /**
  * 可合成的装备
  * @param {String} map 地图
@@ -40,8 +41,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.index)
-    console.log(options.map)
+    LOLitemjs = wx.getStorageSync('equipList')
+    LOLitemData = LOLitemjs.data
     this.setData({
       lolData:LOLitemjs.data,
       currentMap:options.map

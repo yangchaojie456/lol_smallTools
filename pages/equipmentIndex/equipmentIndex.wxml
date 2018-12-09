@@ -103,7 +103,7 @@
       <view class='equipment-index-list-content'>
         <view  class='equipment-index-list-item' wx:for="{{lolData}}" wx:key="key" wx:for-index="key">
           <view wx:for="{{lolData[key]}}" wx:key="index" bind:tap="toEquipDetail" data-index="{{index}}">
-            <image src='//ossweb-img.qq.com/images/lol/img/item/{{index}}.png'></image>
+            <image lazy-load src='//ossweb-img.qq.com/images/lol/img/item/{{index}}.png'></image>
             <view>
               <view class='equipment-index-list-item-title'>{{item.name}}</view>
               <view class='equipment-index-list-item-gold'><text>价格: </text>{{item.gold.total}}</view>
