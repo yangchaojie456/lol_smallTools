@@ -1,13 +1,13 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="lol-index">
+  <!-- 周免英雄 -->
+  <view class='free-champion-titel'>周免英雄</view>
+  <view class='free-champion'>    
+    <view class='free-champion-item' wx:for="{{freeChampion}}" wx:key="index" bindtap='shwoChamppionDetail' data-id="{{item.id}}">
+      <image lazy-load src='//ossweb-img.qq.com/images/lol/img/champion/{{item.id}}.png'></image>
+      <view class='champion-index-home-item-name'>{{item.name}}</view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <!-- 资讯信息 -->
+  <view class='free-champion-titel'>版本信息</view>
 </view>
