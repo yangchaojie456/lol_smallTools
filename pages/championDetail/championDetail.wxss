@@ -64,18 +64,23 @@
 .currentItem2{
   left: 240rpx;
 }
-
+.currentItem3{
+  left: 360rpx;
+}
+.currentItem4{
+  left: 480rpx;
+}
 .champion-detail-content{
   width: 100%;
   overflow-x: hidden;
 }
 
 .champion-detail-content-c{
-  width: 300%;
+  width: 400%;
   transition: all .5s;
 }
 .champion-detail-content-c>view{
-  width: 33.3333%;
+  width: 25%;
   float: left;
 }
 .champion-detail-content-zonglan{
@@ -118,10 +123,13 @@
   transform:translateX(0);
 }
 .transLatex1{
-  transform:translateX(-33.3333%);
+  transform:translateX(-25%);
 }
 .transLatex2{
-  transform:translateX(-66.6666%);
+  transform:translateX(-50%);
+}
+.transLatex3{
+  transform:translateX(-75%);
 }
 .custom-radar{
   width: 420rpx !important;
@@ -271,4 +279,8 @@
 .champion-detail-content-pifu image{
   width: 100%;
   border-radius: 100rpx;    
+}
+
+.champion-detail-content-jiqiao{
+  padding:30rpx;
 }

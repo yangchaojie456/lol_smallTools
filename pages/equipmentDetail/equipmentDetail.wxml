@@ -23,7 +23,7 @@
   <view class='w100'>
     <view class="equipment-compound-item">
       <view wx:if="{{lolData[currentItem].from.length>0}}" class="afterColumn"></view>
-      <image bindtap="chooseEquip" data-index="{{currentItem}}" src='//ossweb-img.qq.com/images/lol/img/item/{{currentItem}}.png'></image>
+      <image wx:if="{{currentItem}}" bindtap="chooseEquip" data-index="{{currentItem}}" src='//ossweb-img.qq.com/images/lol/img/item/{{currentItem}}.png'></image>
       <view>
         {{lolData[currentItem].gold.total}}
       </view>
@@ -103,7 +103,7 @@
   <view class='equipment-description'>
     <view class='equipment-description-header'>
       <view class='equipment-description-image'>
-        <image src='//ossweb-img.qq.com/images/lol/img/item/{{desItem}}.png'></image>
+        <image wx:if="{{desItem}}" src='//ossweb-img.qq.com/images/lol/img/item/{{desItem}}.png'></image>
       </view>
       <view class='equipment-description-brief'>
         <view class='equipment-description-name'>{{lolData[desItem].name}}</view>

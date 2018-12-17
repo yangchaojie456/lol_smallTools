@@ -34,7 +34,7 @@ function initChartRadar(canvas, width, height) {
     radar: {
       center: ['50%', '65%'],
       // shape: 'circle',
-      splitNumber: 5,
+      splitNumber: 0,
       axisLine: {
         lineStyle: {
           color: 'white', //坐标上文字颜色

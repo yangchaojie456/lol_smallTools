@@ -13,6 +13,7 @@
       <text bindtap='chooseItem' data-index='0'>总览</text>
       <text bindtap='chooseItem' data-index='1'>技能</text>
       <text bindtap='chooseItem' data-index='2'>皮肤</text>
+      <!-- <text bindtap='chooseItem' data-index='3'>技巧</text>       -->
       <view class='champion-detail-explain-bar currentItem{{itemIndex}}'></view>
     </view>
   </view>
@@ -150,6 +151,12 @@
             </swiper-item>
           </block>
         </swiper>
+      </view>
+      <view class='champion-detail-content-jiqiao'>
+        <view>使用技巧</view>
+        <view>对抗技巧</view>
+        <view>最佳搭档</view>
+        <view>最佳克制</view>
       </view>
     </view>
 

@@ -1,5 +1,15 @@
 <!--index.wxml-->
 <view class="lol-index">
+  <!-- 当前用户 -->
+  <!-- <view class='current-user'>
+    <view class='current-user-image'>
+        <open-data class="image" type="userAvatarUrl"></open-data>
+    </view>
+    <view class='current-user-text'>
+      <open-data class="current-user-name" type="userNickName"></open-data>      
+      <open-data class="current-user-gender" type="userGender" lang="zh_CN"></open-data>
+    </view>
+  </view> -->
   <!-- 周免英雄 -->
   <view class='free-champion-titel'>周免英雄</view>
   <view class='free-champion'>    
@@ -10,4 +20,7 @@
   </view>
   <!-- 资讯信息 -->
   <view class='free-champion-titel'>版本信息</view>
+  <view class="lol-champion">
+    123
+  </view>
 </view>

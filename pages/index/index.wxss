@@ -9,7 +9,7 @@
   justify-content: space-around;
 }
 .free-champion-titel{
-  font-size: 40rpx;
+  font-size: 35rpx;
   padding-left: 10rpx;
   line-height: 60rpx;
   padding-bottom: 20rpx;
@@ -22,10 +22,36 @@
 .free-champion .free-champion-item image{
   width: 90rpx;
   height: 90rpx;
-  border-radius: 50%;
+  border-radius: 20%;
   box-sizing: border-box;
   border: 1rpx solid #6f5929;
 }
 .free-champion .free-champion-item view{
   white-space: nowrap;
+}
+.current-user{
+  padding-left: 10rpx;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.current-user-image{
+  width: 70rpx;
+  height: 70rpx;  
+}
+.current-user-image .image{
+  height: 100%;
+  width: 100%;
+  float: left;
+  border-radius: 50%;
+  border:1px solid white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.current-user-text{
+  font-size: 30rpx;
+  line-height: 70rpx;
+  padding-left: 20rpx;
+}
+.current-user-name{
+  margin-right: 20rpx;
 }
