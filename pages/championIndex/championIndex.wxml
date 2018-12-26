@@ -36,7 +36,9 @@
     <scroll-view scroll-y style="height: 100vh;" scroll-top="{{scrollTop}}">
       <view class='champion-index-home-right-content'>
         <view class='champion-index-home-item'wx:for="{{championData}}" wx:key="index" bindtap='shwoChamppionDetail' data-id="{{item.id}}">
-          <image lazy-load src='//ossweb-img.qq.com/images/lol/img/champion/{{item.id}}.png'></image>
+        
+          <image lazy-load src='https://lol.personal-tailor.vip/images/champion_pic/{{item.id}}.png'></image>
+          
           <view class='champion-index-home-item-name'>{{item.name}}</view>
         </view>
       </view>

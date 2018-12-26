@@ -67,5 +67,12 @@ App({
     return http({
       url:api.champion_free
     })    
-  }
+  },
+  // 获取版本变动
+  getVersionList() {
+    return http({
+      url: api.version_list
+    })
+  },
+  
 })

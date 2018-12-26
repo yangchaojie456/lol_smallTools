@@ -1,18 +1,35 @@
 .lol-index{
-  color:white;
+  padding:20rpx 0rpx 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  background-size: cover;
+  background-position: top center;
+  background-image: url('https://lol.personal-tailor.vip/images/bg.jpg');    
   font-size: 20rpx;
-  padding:20rpx 20rpx 0;
+  color:white;
 }
 .free-champion{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding:0 20rpx;
 }
 .free-champion-titel{
   font-size: 35rpx;
   padding-left: 10rpx;
   line-height: 60rpx;
   padding-bottom: 20rpx;
+}
+.free-version-titel{
+  font-size: 35rpx;
+  padding-top: 20rpx;
+  padding-left: 10rpx;
+  line-height: 60rpx;  
 }
 .free-champion .free-champion-item{
   width: 90rpx;
@@ -23,7 +40,8 @@
   width: 90rpx;
   height: 90rpx;
   border-radius: 20%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 1rpx solid #6f5929;
 }
 .free-champion .free-champion-item view{
@@ -31,6 +49,8 @@
 }
 .current-user{
   padding-left: 10rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 20rpx;
 }
@@ -44,7 +64,8 @@
   float: left;
   border-radius: 50%;
   border:1px solid white;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   overflow: hidden;
 }
 .current-user-text{
@@ -54,4 +75,15 @@
 }
 .current-user-name{
   margin-right: 20rpx;
+}
+.lol-champion{
+  padding: 0 10rpx;
+  font-size: 30rpx;
+  padding-top: 20rpx;  
+}
+
+.lol-champion view{
+  padding-left: 20rpx;
+  margin: 20rpx 0;
+  color:#a59973;
 }

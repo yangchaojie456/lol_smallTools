@@ -12,15 +12,17 @@
   </view> -->
   <!-- 周免英雄 -->
   <view class='free-champion-titel'>周免英雄</view>
-  <view class='free-champion'>    
+  <view class='free-champion'>
     <view class='free-champion-item' wx:for="{{freeChampion}}" wx:key="index" bindtap='shwoChamppionDetail' data-id="{{item.id}}">
-      <image lazy-load src='//ossweb-img.qq.com/images/lol/img/champion/{{item.id}}.png'></image>
+      <image lazy-load src='https://lol.personal-tailor.vip/images/champion_pic/{{item.id}}.png'></image>
       <view class='champion-index-home-item-name'>{{item.name}}</view>
     </view>
   </view>
   <!-- 资讯信息 -->
-  <view class='free-champion-titel'>版本信息</view>
+  <view class='free-version-titel'>版本公告</view>
   <view class="lol-champion">
-    123
+    <view wx:for="{{versionObj}}" wx:key="index" data-index="{{index}}" bindtap='showVersionDetail'>
+      {{item}}
+    </view>
   </view>
 </view>

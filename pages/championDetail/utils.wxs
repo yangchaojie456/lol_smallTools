@@ -1,28 +1,47 @@
 //头部区域模块 nav
-var getTag = function (t) {
+var getTag = function(t) {
   switch (t) {
-    case "Fighter": return "战士";
-    case "Mage": return "法师";
-    case "Assassin": return "刺客";
-    case "Tank": return "坦克";
-    case "Marksman": return "射手";
-    case "Support": return "辅助";
-    default: return
+    case "Fighter":
+      return "战士";
+    case "Mage":
+      return "法师";
+    case "Assassin":
+      return "刺客";
+    case "Tank":
+      return "坦克";
+    case "Marksman":
+      return "射手";
+    case "Support":
+      return "辅助";
+    default:
+      return
   }
 }
 //计算等级提升值
-var getLevelValue = function(value,levelValue,level,type){
+var getLevelValue = function(value, levelValue, level, type) {
   var _value = ''
-  if(!type){
-    _value = value+levelValue*level+''
-  }else{
-    _value = value+value*levelValue*level/100+''
+  if (!type) {
+    _value = value + levelValue * level + ''
+  } else {
+    _value = value + value * levelValue * level / 100 + ''
   }
-  return _value.slice(0,6)
+  return _value.slice(0, 6)
 }
 // 返回QWRE
-var getSkillName = function(str){
-  return str.slice(-1)
+var getSkillName = function(str) {
+  
+  if (str == 0) {
+    return 'Q'
+  }
+  if (str == 1) {
+    return 'W'
+  }
+  if (str == 2) {
+    return 'E'
+  }
+  if (str == 3) {
+    return 'R'
+  }
 }
 module.exports = {
   getTag: getTag,

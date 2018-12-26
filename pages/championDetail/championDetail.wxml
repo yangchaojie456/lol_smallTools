@@ -3,7 +3,9 @@
 <view class='champion-detail-home' wx:if="{{currentChampion}}">
   <view class='champion-detail-head'>
     <view class='champion-detail-head-content'>
-      <image src='https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{currentChampion.id}}.png'></image>
+      
+      <image src='https://lol.personal-tailor.vip/images/champion_pic/{{currentChampion.id}}.png'></image>
+      
       <view class='champion-detail-head-title'>
         <view class='champion-detail-head-alias'>{{currentChampion.name}}</view>
         <view class='champion-detail-head-name'>{{currentChampion.title}}</view>
@@ -111,17 +113,18 @@
         <view class='champion-detail-content-jineng-title'>
           <view class='champion-detail-content-jineng-title-image {{currentSkill==passive.image.group?"currentS":""}}' bindtap='bindChangeSpells' data-index="{{passive.image.group}}" data-type="passive">
 
-            <view class='champion-detail-content-jineng-title-image-box'>
-              <image wx:if="{{passive.image.full}}" src='https://ossweb-img.qq.com/images/lol/img/passive/{{passive.image.full}}'></image>
+            <view class='champion-detail-content-jineng-title-image-box'>          
+              <image wx:if="{{passive.image.full}}" src='https://lol.personal-tailor.vip/images/champion_passive/{{passive.image.full}}'></image>
             </view>
             <view>P</view>
           </view>
           <view wx:for="{{spells}}" wx:key="index" class='champion-detail-content-jineng-title-image {{currentSkill==item.id?"currentS":""}}' bindtap='bindChangeSpells' data-index="{{item.id}}" data-type="spells">
 
-            <view class='champion-detail-content-jineng-title-image-box'>
-              <image src='https://ossweb-img.qq.com/images/lol/img/spell/{{item.image.full}}'></image>
+            <view class='champion-detail-content-jineng-title-image-box'>              
+              <image src='https://lol.personal-tailor.vip/images/champion_spell/{{item.image.full}}'></image>
+              
             </view>
-            <view>{{tools.getSkillName(item.id)}}</view>
+            <view>{{tools.getSkillName(index)}}</view>
           </view>
 
 
@@ -145,8 +148,9 @@
       <view class='champion-detail-content-pifu'>
         <swiper vertical="{{false}}" style='height:{{pifuImageHeight+20}}px'>
           <block wx:for="{{skins}}" wx:key="index">
-            <swiper-item bindtap="showImage" data-imgUrl="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{currentChampion.id}}_{{item.num}}.jpg">
-              <image src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{currentChampion.id}}_{{item.num}}.jpg" class="slide-image" width="355" height="150" />
+          
+            <swiper-item bindtap="showImage" data-imgUrl="https://lol.personal-tailor.vip/images/champion_splash/{{item.id}}.jpg">
+              <image src="https://lol.personal-tailor.vip/images/champion_splash/{{item.id}}.jpg" class="slide-image" width="355" height="150" />
               <view class='champion-detail-content-pifu-name'>{{item.name=='default'?'默认皮肤':item.name}}</view>
             </swiper-item>
           </block>

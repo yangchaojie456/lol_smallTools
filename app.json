@@ -2,25 +2,29 @@
   "pages": [
     "pages/index/index",
     "pages/championIndex/championIndex",
-    "pages/equipmentIndex/equipmentIndex",    
+    "pages/equipmentIndex/equipmentIndex",
     "pages/equipmentDetail/equipmentDetail",
     "pages/championDetail/championDetail",
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/versionDetail/versionDetail"
   ],
   "tabBar": {
-    "backgroundColor":"#000",
-    "color":"#fff",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/championIndex/championIndex",
-      "text": "英雄"
-    }, {
-      "pagePath": "pages/equipmentIndex/equipmentIndex",
-      "text": "物品"
-    }]
+    "backgroundColor": "#000",
+    "color": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/championIndex/championIndex",
+        "text": "英雄"
+      },
+      {
+        "pagePath": "pages/equipmentIndex/equipmentIndex",
+        "text": "物品"
+      }
+    ]
   },
   "window": {
     "backgroundColor": "#000",

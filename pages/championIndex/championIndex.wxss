@@ -6,8 +6,12 @@
   background-position: top center;
   background-image: url('https://lol.personal-tailor.vip/images/bg.jpg');
   padding: 0 10rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-size: 26rpx;
   color:white;
 }
@@ -20,10 +24,16 @@
   
 }
 .champion-index-home-right-content{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 .champion-index-search input{
   line-height: 26rpx;

@@ -165,6 +165,8 @@ image{
   min-height: 520rpx;
 }
 .equipment-description-header{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;  
   border-bottom:4rpx solid #727272;
 }

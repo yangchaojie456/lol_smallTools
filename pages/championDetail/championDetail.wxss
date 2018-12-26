@@ -53,6 +53,7 @@
   border-radius: 50%;
   bottom: 0;
   left: 0;
+  -webkit-transition: all .5s;
   transition: all .5s;
 }
 .currentItem0{
@@ -77,6 +78,7 @@
 
 .champion-detail-content-c{
   width: 400%;
+  -webkit-transition: all .5s;
   transition: all .5s;
 }
 .champion-detail-content-c>view{
@@ -91,8 +93,12 @@
   padding-top: 30rpx;
 }
 .champion-detail-content-jineng-title{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0 50rpx;
   padding-bottom: 30rpx;
   border-bottom:1px solid #362b11
@@ -120,16 +126,20 @@
   text-align: center;
 }
 .transLatex0{
-  transform:translateX(0);
+  -webkit-transform:translateX(0);
+          transform:translateX(0);
 }
 .transLatex1{
-  transform:translateX(-25%);
+  -webkit-transform:translateX(-25%);
+          transform:translateX(-25%);
 }
 .transLatex2{
-  transform:translateX(-50%);
+  -webkit-transform:translateX(-50%);
+          transform:translateX(-50%);
 }
 .transLatex3{
-  transform:translateX(-75%);
+  -webkit-transform:translateX(-75%);
+          transform:translateX(-75%);
 }
 .custom-radar{
   width: 420rpx !important;
@@ -144,8 +154,11 @@
   float: right;
 }
 .champion-detail-content-zonglan-info{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 .champion-detail-content-zonglan-orientation{
   position: relative;
@@ -228,7 +241,23 @@
   top: 0;
   bottom: 0;
   border: 2rpx solid #c9bb8f;
-  animation: borderAround 1.5s infinite linear;
+  -webkit-animation: borderAround 1.5s infinite linear;
+          animation: borderAround 1.5s infinite linear;
+}
+
+@-webkit-keyframes borderAround{
+  0%,100%{
+    clip:rect(0 60rpx 2rpx 0)
+  }
+  25%{
+    clip:rect(0 60rpx 60rpx 58rpx)
+  }
+  50%{
+    clip:rect(58rpx 60rpx 60rpx 0)
+  }
+  75%{
+    clip:rect(0 2rpx 60rpx 0)
+  }
 }
 
 @keyframes borderAround{

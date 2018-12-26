@@ -109,7 +109,7 @@ function initChartBar(canvas, width, height) {
       type: 'value',
       max: 10,
       nameGap: 5,
-      splitNumber: 2,
+      splitNumber: 1,
       axisLine: {
         show: false,
         lineStyle: {
@@ -144,6 +144,11 @@ function initChartBar(canvas, width, height) {
     series: [{
       center: ['50%', '10%'],
       data: [_difficulty],
+      label:{
+        show:true,
+        color:'#fff',
+        position: 'right',
+      },
       itemStyle: {
         normal: {
           color: new echarts.graphic.LinearGradient(

@@ -5,8 +5,12 @@
   background-position: top center;
   background-image: url('https://lol.personal-tailor.vip/images/bg.jpg');
   padding:10rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-size: 26rpx;
 }
 .equipment-index-items{
@@ -35,6 +39,7 @@
   margin-top: 0!important;
 }
 .currentItem,.currentMap{
+  background: -webkit-gradient(linear, left top, right top, from(#164242), to(#111f1e));
   background: linear-gradient(to right, #164242, #111f1e);
   color:#7de9c2!important;
 }
@@ -78,9 +83,14 @@
   margin-right: 10rpx;
 }
 .equipment-index-list-content{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 checkbox-group label{
   display: inline-block;

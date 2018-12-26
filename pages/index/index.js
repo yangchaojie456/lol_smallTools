@@ -1,12 +1,14 @@
 var free = null
 var app = getApp()
+var http = require('../../server/http')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    freeChampion:[,,,,,,,,,,,,,,]
   },
 
   /**
@@ -26,10 +28,23 @@ Page({
           freeChampion: LOLherojs.data
         })
       })
-
+    app.getVersionList()
+    .then(res=>{
+      
+      Object.keys(res.data)
+      this.setData({
+        versionObj: Object.keys(res.data)
+      })
+    })
 
   },
-
+  showVersionDetail(e){
+    console.log(e.currentTarget.dataset.index)
+    var index = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url: '/pages/versionDetail/versionDetail?index=' + index
+    })
+  },
   shwoChamppionDetail(e) {
     console.log(e.currentTarget.dataset.id)
     var id = e.currentTarget.dataset.id

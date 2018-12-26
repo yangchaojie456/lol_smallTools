@@ -1,0 +1,58 @@
+.version-detail{
+  
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  background-size: cover;
+  background-position: top center;
+  background-image: url('https://lol.personal-tailor.vip/images/bg.jpg');    
+  font-size: 24rpx;
+  color:white;
+}
+
+.wxParse-blockquote{
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.wxParse-p{
+  margin: 10rpx 0;
+}
+.wxParse-p view{
+  padding:0 20rpx;
+  display: block;
+}
+.wxParse-h3{
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  
+}
+.wxParse-h3 view{
+  border-bottom: 1px solid #333;
+}
+
+.wxParse-center .wxParse-h4 image{
+  border-radius: 50%;
+  overflow: hidden;
+}
+.wxParse-center .wxParse-h4 .WxEmojiView.wxParse-inline{
+  display: inline-block;
+  padding-left: 2em;
+  font-style: normal
+}
+.wxParse-center .wxParse-p .wxParse-strong.wxParse-inline{
+  margin-bottom: 20rpx;
+}
+.wxParse-center .wxParse-p .wxParse-strong.wxParse-inline .wxParse-img{
+  border-radius: 50%;
+  overflow: hidden;
+}
+.wxParse-center .wxParse-p .wxParse-strong.wxParse-inline .WxEmojiView.wxParse-inline{
+  display: inline-block;
+}
+.wxParse-a{
+  display: none!important;
+}
+.version-detail>.wxParse-center{
+  padding-left: 20rpx;
+}

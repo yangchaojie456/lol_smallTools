@@ -1,0 +1,7 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class='version-detail'>
+  <scroll-view style='width:100%;height:100vh' scroll-y>
+    <template is="wxParse" data="{{wxParseData:description.nodes}}" />  
+  </scroll-view>
+</view>
