@@ -1,0 +1,46 @@
+/* pages/help/help.wxss */
+
+page {
+  color: #6f5929;
+}
+
+.contain {
+  
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  background-size: cover;
+  background-position: top center;
+  background-image: url('https://lol.personal-tailor.vip/images/bg.jpg');
+  font-size: 20rpx;
+  color: white;
+  padding: 40rpx;
+  padding-top: 100rpx;
+}
+
+.contact,.message{
+  border: 1px solid #6f5929;
+  margin-bottom: 20rpx;
+  padding: 10rpx;
+}
+.contact text ,.message text{
+  font-size: 30rpx;
+  color: #6f5929;
+}
+text.require{
+  color: red;
+}
+input ,textarea{
+  font-size: 30rpx;
+}
+.submit{
+  width: 50%;
+  margin: 0 auto;
+  background: transparent;
+  border: 1px solid #6f5929;
+  
+}
+.submit button{
+  background: transparent;
+  color: #6f5929;
+}

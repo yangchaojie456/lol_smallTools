@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/championIndex/championIndex",
     "pages/equipmentIndex/equipmentIndex",
+    "pages/championIndex/championIndex",
     "pages/equipmentDetail/equipmentDetail",
     "pages/championDetail/championDetail",
     "pages/logs/logs",
-    "pages/versionDetail/versionDetail"
+    "pages/versionDetail/versionDetail",
+    "pages/help/help"
   ],
   "tabBar": {
     "backgroundColor": "#000",
@@ -23,6 +24,10 @@
       {
         "pagePath": "pages/equipmentIndex/equipmentIndex",
         "text": "物品"
+      },
+      {
+        "pagePath": "pages/help/help",
+        "text": "反馈"
       }
     ]
   },
@@ -32,5 +37,6 @@
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "联盟小工具",
     "navigationBarTextStyle": "white"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

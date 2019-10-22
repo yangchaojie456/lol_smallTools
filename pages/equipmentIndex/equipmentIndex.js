@@ -34,7 +34,7 @@ function filterToCanSelect(map,tags){
     if(LOLitemData.hasOwnProperty(key)){
       
       var cItem = LOLitemData[key]
-      if(cItem.maps[cMap]){
+      if(true){
 
         if(cItem.tags.length>tags.length){
           var flag = true
@@ -77,7 +77,7 @@ function filterEquip(map,tags,union){
       if(LOLitemData.hasOwnProperty(key)){
         
         var cItem = LOLitemData[key]
-        if(cItem.maps[cMap]){
+        if(true){
           cLOLitemData[key] = LOLitemData[key]
         }
       }
@@ -87,7 +87,7 @@ function filterEquip(map,tags,union){
       if(LOLitemData.hasOwnProperty(key)){
         
         var cItem = LOLitemData[key]
-        if(cItem.maps[cMap]&&cItem.tags.includes(tags[0])){
+        if(true&&cItem.tags.includes(tags[0])){
           cLOLitemData[key] = LOLitemData[key]
         }
       }
@@ -97,7 +97,7 @@ function filterEquip(map,tags,union){
       if(LOLitemData.hasOwnProperty(key)){
         
         var cItem = LOLitemData[key]
-        if(cItem.maps[cMap]){
+        if(true){
           
           // 交集还是并集 默认交集
           if(!union){

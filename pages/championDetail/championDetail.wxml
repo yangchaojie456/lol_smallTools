@@ -150,7 +150,7 @@
           <block wx:for="{{skins}}" wx:key="index">
           
             <swiper-item bindtap="showImage" data-imgUrl="https://lol.personal-tailor.vip/images/champion_splash/{{item.id}}.jpg">
-              <image src="https://lol.personal-tailor.vip/images/champion_splash/{{item.id}}.jpg" class="slide-image" width="355" height="150" />
+              <image mode='aspectFit' src="https://lol.personal-tailor.vip/images/champion_splash/{{item.id}}.jpg" class="slide-image" width="355" height="150" />
               <view class='champion-detail-content-pifu-name'>{{item.name=='default'?'默认皮肤':item.name}}</view>
             </swiper-item>
           </block>

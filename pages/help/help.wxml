@@ -1,0 +1,18 @@
+<!--pages/help/help.wxml-->
+<view class='contain'>
+  <form bindsubmit="bindFormSubmit">
+    <view class='contact'>
+      <text>联系方式：</text>
+      <input maxlength='35' value='{{contact}}' placeholder="QQ/微信/手机/邮箱" name="contact"/>
+    </view>
+    <view class='message'>
+      <text>反馈内容<text class='require'>*</text>：</text>
+      
+      <textarea maxlength='500' value='{{message}}' placeholder="请输入" name="message" />
+    </view>
+    <view class='submit'>
+      <button form-type="submit">提交</button>
+    </view>
+
+  </form>
+</view>

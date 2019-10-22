@@ -1,28 +1,51 @@
-var http = require('../../server/http')
-var WxParse = require('../../wxParse/wxParse.js');
+var api = require('../..//server/api')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    contact:'',
+    message:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getVersion(options.index)
+
   },
-  getVersion(index) {
-    // http://lol.personal-tailor.vip/version_html/index0
-    http({
-      url: 'https://lol.personal-tailor.vip/data_json/versionUpdate_html/index'+index+'.html'
-    }).then(res => {
-      console.log('最近版本', res.data)
-      WxParse.wxParse('description', 'html', res.data, this, 5);
-    })
+  bindFormSubmit(e) {
+    var _this = this
+    var {contact,message} = e.detail.value
+    if(!message){
+      wx.showToast({
+        title: '反馈内容不能为空',
+        icon:'none'
+      })
+    }else{
+      wx.request({
+        url: api.feedback,
+        method:'post',
+        data:{
+          contact,
+          message
+        },
+        success(res){
+          
+          _this.setData({
+            contact:'',
+            message:''
+          })
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',            
+          })  
+            
+          
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

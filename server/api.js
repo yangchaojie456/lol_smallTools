@@ -5,6 +5,7 @@ var api = {
     champion_list:host+'/champion/list',
     champion_detail:host+'/champion',
     champion_free:host+'/champion/free',
-    version_list: host +'/versionList'
+    version_list: host +'/versionList',
+    feedback: host +'/feedback/message',
 }
 module.exports = api
